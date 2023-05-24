@@ -49,7 +49,7 @@ const Navbar = () => {
           onMouseEnter={handleLivingEnter}
           onMouseLeave={handleLivingLeave}
         >
-          <button className="tw-bg-gray-200 tw-hover:bg-gray-300 tw-py-2 tw-px-4 tw-rounded"> LIVING </button>
+          <a href='/living' className="tw-block tw-bg-gray-200 tw-hover:bg-gray-300 tw-py-2 tw-px-4 tw-rounded"> LIVING </a>
           {isLivingOpen && (
             <div
               className="livingDropdown"
@@ -68,7 +68,7 @@ const Navbar = () => {
           onMouseEnter={handleDiningEnter}
           onMouseLeave={handleDiningLeave}
         >
-          <button className="tw-bg-gray-200 tw-hover:bg-gray-300 tw-py-2 tw-px-4 tw-rounded"> DINING </button>
+          <a href='/dining' className="tw-block tw-bg-gray-200 tw-hover:bg-gray-300 tw-py-2 tw-px-4 tw-rounded"> DINING </a>
           {isDiningOpen && (
             <div
               className="diningDropdown"
@@ -87,7 +87,7 @@ const Navbar = () => {
           onMouseEnter={handleBedroomEnter}
           onMouseLeave={handleBedroomLeave}
         >
-          <button className="tw-bg-gray-200 tw-hover:bg-gray-300 tw-py-2 tw-px-4 tw-rounded"> BEDROOM </button>
+          <a href='/bedroom' className="tw-block tw-bg-gray-200 tw-hover:bg-gray-300 tw-py-2 tw-px-4 tw-rounded"> BEDROOM </a>
           {isBedroomOpen && (
             <div
               className="bedroomDropdown"
@@ -106,7 +106,7 @@ const Navbar = () => {
           onMouseEnter={handleServicesEnter}
           onMouseLeave={handleServicesLeave}
         >
-          <button className="tw-bg-gray-200 tw-hover:bg-gray-300 tw-py-2 tw-px-4 tw-rounded">OUR SERVICES</button>
+          <a href='/services' className="tw-block tw-bg-gray-200 tw-hover:bg-gray-300 tw-py-2 tw-px-4 tw-rounded">OUR SERVICES</a>
           {isServicesOpen && (
             <div
               className="servicesDropdown"
