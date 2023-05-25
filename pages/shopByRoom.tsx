@@ -4,6 +4,7 @@ import '../styles/flickity.css';
 import Header from '../components/header'
 import ShopTheCollectionButton from '@/components/Button';
 import Footer from '@/components/Footer';
+import { MainPic } from '@/components/MainPic';
 
 const ShopByRoomPage: React.FC = () => {
   const flickityOptions = {
@@ -14,12 +15,7 @@ const ShopByRoomPage: React.FC = () => {
   return (
     <>
       <Header />
-      <div className="slide1 tw-h-screen">
-            <a href="#" className="mainPic tw-block tw-h-5/6" style={{
-              backgroundImage: "url('img/mainPage.jpg')",
-              backgroundSize: 'cover',
-            }}></a>
-      </div>
+      <MainPic />
 
       <p>Designing a room with thoughtfully curated pieces sets the tone for a completed look you’ll love for years to come. Discover our favorite looks across the home to inspire your space.</p>
 
