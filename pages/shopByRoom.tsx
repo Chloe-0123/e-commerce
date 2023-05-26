@@ -15,7 +15,7 @@ const ShopByRoomPage: React.FC = () => {
   return (
     <>
       <Header />
-      <MainPic />
+      <MainPic url='img/mainPage.jpg'/>
 
       <p>Designing a room with thoughtfully curated pieces sets the tone for a completed look you’ll love for years to come. Discover our favorite looks across the home to inspire your space.</p>
 

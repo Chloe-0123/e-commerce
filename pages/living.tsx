@@ -6,7 +6,7 @@ const Living = () => {
   return (
     <>
     <Header />
-    <MainPic />
+    <MainPic url='img/mainPage.jpg'/>
     </>
   )
 }

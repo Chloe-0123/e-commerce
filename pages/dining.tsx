@@ -5,8 +5,8 @@ const Dining = () => {
   return (
     <>
     <Header />
-    <MainPic />
-    
+    <MainPic url='img/mainPage.jpg'/>
+
     </>
   )
 }
