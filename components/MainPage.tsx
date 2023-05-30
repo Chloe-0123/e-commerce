@@ -1,4 +1,7 @@
 import { Cards } from "./Cards";
+import Image from 'next/image';
+import Link from "next/link";
+
 
 
 const MainPage = () => {
@@ -32,6 +35,26 @@ const MainPage = () => {
             
             
           </div>
+
+          <div className="shopByRoom flex bg-[rgb(250,249,247)] w-screen justify-center">
+            <div className="img p-12">
+                <Image src="https://place-puppy.com/300x500" alt="" width={300} height={500} />
+            </div>
+            <div className="getInspired flex flex-col justify-center gap-12">
+                <div className="getInspiredText">
+                    <h2>Get Inspired</h2>
+                    <p>Discover our favorite looks across the home to inspire your space.</p>
+                </div>
+                
+                <div className="shopButton">
+                <Link href="/shopByRoom">Shop by Room</Link>
+
+                </div>
+                
+            </div>
+            
+
+        </div>
           
         </div>
       </>
