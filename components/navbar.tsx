@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { DropdownMenu } from '../pages/DropdownMenu';
+import { DropdownMenu } from './DropdownMenu';
 
 const Navbar = () => {
   const [isLivingOpen, setIsLivingOpen] = useState(false);
@@ -43,13 +43,13 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="flex flex-1 w-full justify-center">
+      <div className="tw-flex tw-flex-1 tw-w-full tw-justify-center">
         <div
           className="living"
           onMouseEnter={handleLivingEnter}
           onMouseLeave={handleLivingLeave}
         >
-          <button className="bg-gray-200 hover:bg-gray-300 py-2 px-4 rounded"> LIVING </button>
+          <button className="tw-bg-gray-200 tw-hover:bg-gray-300 tw-py-2 tw-px-4 tw-rounded"> LIVING </button>
           {isLivingOpen && (
             <div
               className="livingDropdown"
@@ -68,7 +68,7 @@ const Navbar = () => {
           onMouseEnter={handleDiningEnter}
           onMouseLeave={handleDiningLeave}
         >
-          <button className="bg-gray-200 hover:bg-gray-300 py-2 px-4 rounded"> DINING </button>
+          <button className="tw-bg-gray-200 tw-hover:bg-gray-300 tw-py-2 tw-px-4 tw-rounded"> DINING </button>
           {isDiningOpen && (
             <div
               className="diningDropdown"
@@ -87,7 +87,7 @@ const Navbar = () => {
           onMouseEnter={handleBedroomEnter}
           onMouseLeave={handleBedroomLeave}
         >
-          <button className="bg-gray-200 hover:bg-gray-300 py-2 px-4 rounded"> BEDROOM </button>
+          <button className="tw-bg-gray-200 tw-hover:bg-gray-300 tw-py-2 tw-px-4 tw-rounded"> BEDROOM </button>
           {isBedroomOpen && (
             <div
               className="bedroomDropdown"
@@ -106,7 +106,7 @@ const Navbar = () => {
           onMouseEnter={handleServicesEnter}
           onMouseLeave={handleServicesLeave}
         >
-          <button className="bg-gray-200 hover:bg-gray-300 py-2 px-4 rounded">OUR SERVICES</button>
+          <button className="tw-bg-gray-200 tw-hover:bg-gray-300 tw-py-2 tw-px-4 tw-rounded">OUR SERVICES</button>
           {isServicesOpen && (
             <div
               className="servicesDropdown"
