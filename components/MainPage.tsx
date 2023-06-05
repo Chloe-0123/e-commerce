@@ -17,7 +17,7 @@ const MainPage = () => {
               <h2 className='tw-text-5xl'>New Arrivals</h2>
               <h6>SHOP COLLECTION</h6>
             </div>
-          </div>
+        </div>
 
 
           <div className="slide2 tw-h-screen tw-mr-20 tw-ml-20">

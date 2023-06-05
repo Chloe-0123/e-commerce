@@ -1,7 +1,15 @@
 import React from 'react'
 
-export const PageIntro = () => {
+interface PageIntroProps {
+    title: string,
+    p: string
+}
+
+export const PageIntro = ({ title, p }:PageIntroProps) => {
   return (
-    <div>PageIntro</div>
+    <div>
+        <h2>{title}</h2>
+        <p>{p}</p>
+    </div>
   )
 }
