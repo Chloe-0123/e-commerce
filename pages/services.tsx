@@ -44,7 +44,7 @@ const Services = () => {
             <Textbox name="Phone Number" />
             <div className="">
               <p className="tw-pb-2">Your Customization Request</p>
-              <textarea className="tw-textarea tw-textarea-bordered tw-h-[200px] tw-w-full tw-resize-none" ></textarea>
+              <textarea className="tw-textarea tw-textarea-bordered tw-h-[200px] tw-w-full tw-resize-none"></textarea>
             </div>
 
 
