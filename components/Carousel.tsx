@@ -1,42 +1,86 @@
-import React from 'react';
-import Flickity from 'react-flickity-component';
-import styles from '../styles/carousel.module.css';
+import React, { useState, CSSProperties } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
+import '../styles/productCarousel.css'
 
-const Carousel = () => {
-  const flickityOptions = {
-    initialIndex: 2,
-    wrapAround: true,
-    
-  };
+import { FreeMode, Navigation, Thumbs } from "swiper";
+
+export const PCarousel = () => {
+
+
+  const [thumbsSwiper, setThumbsSwiper] = useState(null)
+  
+
 
   return (
     <>
-      <Flickity
-        className={styles.carousel}
-        elementType="div"
-        options={flickityOptions}
-        disableImagesLoaded={false}
-        reloadOnUpdate
-        static
-      >
-        <a href="#" className={styles['carousel-cell']}>
-          <img src="https://place-puppy.com/800x800" alt="Puppy 1" />
-        </a>
-        <a href="#" className={styles['carousel-cell']}>
-          <img src="https://place-puppy.com/500x300" alt="Puppy 2" />
-        </a>
-        <a href="#" className={styles['carousel-cell']}>
-          <img src="https://place-puppy.com/500x300" alt="Puppy 3" />
-        </a>
-        <a href="#" className={styles['carousel-cell']}>
-          <img src="https://place-puppy.com/500x300" alt="Puppy 4" />
-        </a>
-        <a href="#" className={styles['carousel-cell']}>
-          <img src="https://place-puppy.com/500x300" alt="Puppy 5" />
-        </a>
-      </Flickity>
-    </>
-  );
-};
 
-export default Carousel;
+      <Swiper 
+      style={{
+        "--swiper-navigation-color": "#fff",
+        "--swiper-pagination-color": "#fff",
+
+        
+      } as CSSProperties}
+        spaceBetween={10}
+        navigation={false}
+        thumbs={{ swiper: thumbsSwiper }}
+        modules={[FreeMode, Navigation, Thumbs]}
+        className="mySwiper2"
+      >
+      <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+        </SwiperSlide>
+       
+      </Swiper>
+
+      <Swiper
+        style={{"width": "70%"} as CSSProperties}
+        onSwiper={setThumbsSwiper}
+        spaceBetween={10}
+        slidesPerView={5}
+        freeMode={true}
+        watchSlidesProgress={true}
+        modules={[FreeMode, Navigation, Thumbs]}
+        className="mySwiper"
+      >
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+        </SwiperSlide>
+       
+      </Swiper>
+
+
+    </>
+
+
+
+  )
+}

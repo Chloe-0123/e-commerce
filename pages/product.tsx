@@ -1,14 +1,33 @@
 import React from 'react';
-
-import '../styles/productCarousel.css'// Import the Flickity CSS
-import "slick-carousel/slick/slick.css";
-
-import "slick-carousel/slick/slick-theme.css";
-
+import { PCarousel } from '@/components/Carousel';
+import Header from '@/components/header';
+import { ProductDesc } from '@/components/Product';
 
 
 
 const ProductInfo = () => {
+    return (
+
+        <>
+        <Header />
+        
+        <div className='tw-flex'>
+            <div className="swipers">
+                
+                <PCarousel />
+        
+                
+                
+            </div>
+            <ProductDesc productDesc='lorem ipsum' productName='Villary Couch' productPrice={400} />
+
+
+        </div>
+
+       
+       
+        </>
+    )
   
 };
 

@@ -2,7 +2,7 @@ import React from 'react';
 import Flickity from 'react-flickity-component';
 import '../styles/flickity.css';
 import Header from '../components/header'
-import ShopTheCollectionButton from '@/components/Button';
+import { ShopTheCollectionButton } from '@/components/Button';
 import Footer from '@/components/Footer';
 import { MainPic } from '@/components/MainPic';
 

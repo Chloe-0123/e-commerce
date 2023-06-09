@@ -13,7 +13,7 @@ export const MainPic = ({ url, text }:MainPicProps) => {
         backgroundImage: `url(${url})`,
         backgroundSize: 'cover',
       }}>
-      </a>
+      </a>  
     </div>
     {text && 
     
