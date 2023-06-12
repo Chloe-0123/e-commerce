@@ -2,7 +2,7 @@ import React from 'react'
 import Header from '@/components/header'
 import { MainPic } from '@/components/MainPic';
 import Footer from '@/components/Footer';
-import ShopTheCollectionButton from '@/components/Button';
+import { ShopTheCollectionButton } from '@/components/Button';
 import { Textbox } from '@/components/Textbox';
 
 const Services = () => {

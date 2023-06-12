@@ -1,6 +1,6 @@
 "use client";
 import '../styles/globals.css'
-
+import Link from 'next/link';
 import React, { useState } from 'react'
 import Navbar from './navbar';
 
@@ -21,12 +21,12 @@ const Header = () => {
                   <span className="tw-badge tw-badge-sm tw-indicator-item">8</span>
                 </div>
               </label>
-              <div tabIndex={0} className="cart-content tw-mt-3 tw-card tw-card-compact tw-dropdown-content tw-w-52 tw-bg-base-100 tw-shadow">
+              <div tabIndex={0} className="cart-content tw-mt-3 tw-card tw-card-compact tw-dropdown-content tw-w-52 tw-bg-base-100 tw-shadow tw-z-10">
                 <div className="tw-card-body">
                   <span className="tw-font-bold tw-text-lg">8 Items</span>
                   <span className="tw-text-info">Subtotal: $999</span>
                   <div className="tw-card-actions">
-                    <button className="tw-btn tw-btn-primary tw-btn-block">View cart</button>
+                    <Link href='/viewCart'><button className="tw-btn tw-btn-primary tw-btn-block">View cart</button></Link>
                   </div>
                 </div>
               </div>
@@ -39,12 +39,9 @@ const Header = () => {
               </label>
               <ul tabIndex={0} className="tw-menu tw-menu-compact tw-dropdown-content tw-mt-3 tw-p-2 tw-shadow tw-bg-base-100 tw-rounded-box w-52">
                 <li>
-                  <a className="tw-justify-between">
-                    Profile
-                  
-                  </a>
+                  <Link href="/profile">Profile</Link>
                 </li>
-                <li><a>Settings</a></li>
+                
                 <li><a>Logout</a></li>
               </ul>
             </div>

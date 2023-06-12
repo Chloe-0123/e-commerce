@@ -84,3 +84,11 @@ export const QuantityAdd = () => {
     </>
   );
 };
+
+export const ConfirmButton = () => {
+  return (
+    <div className={"shopButton" }>
+    <a href="#" className="tw-px-9 tw-py-3 tw-border-solid tw-border-2 tw-border-black tw-rounded-md">Save</a>
+  </div>
+  )
+}
