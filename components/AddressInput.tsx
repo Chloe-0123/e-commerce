@@ -93,7 +93,7 @@ export default function AddressForm() {
       </div>
       
       <div className="tw-mt-12"></div>
-      <ConfirmButton />
+      <ConfirmButton name="Save"/>
     </form>
   );
 }

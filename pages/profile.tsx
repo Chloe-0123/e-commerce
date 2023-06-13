@@ -3,6 +3,9 @@ import Header from '@/components/header'
 import { Settings } from '@/components/Settings'
 import { Orders } from '@/components/Orders'
 
+
+
+
 const Profile = () => {
   //change password, id, address 
   //delete account 

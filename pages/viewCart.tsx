@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from '@/components/header'
+import { ConfirmButton } from '@/components/Button'
 
 
 const ViewCart = () => {
@@ -119,7 +120,12 @@ const ViewCart = () => {
 
         
     </table>
-</div>
+    </div>
+    <div className="tw-flex tw-justify-center tw-mt-32">
+        <ConfirmButton name="Go to Checkout" />
+    </div>
+   
+
     </>
     
   )

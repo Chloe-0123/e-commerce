@@ -57,7 +57,7 @@ const Navbar = () => {
               onMouseLeave={handleLivingLeave}
             >
               <DropdownMenu
-                options={['Shop All', 'Sofas', 'Tables', 'New Arrivals', 'livingroom1.png', 'livingroom2.png']}
+                options={['Shop All', 'Sofas', 'Tables', 'Chairs']}
               />
             </div>
           )}
@@ -76,7 +76,7 @@ const Navbar = () => {
               onMouseLeave={handleDiningLeave}
             >
               <DropdownMenu
-                options={['teeraefe', 'q34rqewf23e323r', 'awef2222fe', 'awqfefwef', 'aefeavf']}
+                options={['Shop All']}
               />
             </div>
           )}
@@ -95,7 +95,7 @@ const Navbar = () => {
               onMouseLeave={handleBedroomLeave}
             >
               <DropdownMenu
-                options={['123123123', 'q3434r', 'a5466e', 'aw97f', 'a2432434f']}
+                options={['Shop All', 'Beds', 'Dressers', 'Chairs']}
               />
             </div>
           )}
@@ -113,9 +113,7 @@ const Navbar = () => {
               onMouseEnter={handleServicesEnter}
               onMouseLeave={handleServicesLeave}
             >
-              <DropdownMenu
-                options={['srgwg4t', 'q323433455r', 'asgslkjglkr', 'werf', 'a']}
-              />
+              
             </div>
           )}
         </div>

@@ -40,7 +40,7 @@ export const Settings = ({name, email, streetNumber, streetName, city, ZIP, stat
             { emailChange && <>
                 <div className="tw-mb-8"></div>
                 <Textbox3 name='newEmail'/>
-                <ConfirmButton />
+                <ConfirmButton name="Save"/>
             </>}
 
         </div>
@@ -59,7 +59,7 @@ export const Settings = ({name, email, streetNumber, streetName, city, ZIP, stat
                 <Textbox3 name='newPassword'/>
                 <Textbox3 name='newPasswordConfirm' />
             </div>
-            <ConfirmButton /></>}
+            <ConfirmButton name="Save"/></>}
         </div>
 
         <Bar />
