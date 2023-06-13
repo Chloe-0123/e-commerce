@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect} from 'react'
 import Header from '@/components/header'
 import { Settings } from '@/components/Settings'
 import { Orders } from '@/components/Orders'
-
 
 
 
@@ -13,6 +12,19 @@ const Profile = () => {
 
   const [setting, handleSetting] = useState(true)
   const [orders, handleOrders] = useState(false)
+  const [userData, setUserData] = useState(null);
+
+
+  useEffect(() => {
+    fetch('../api/user/getUser')
+      .then((response) => response.json())
+      .then((data) => setUserData(data))
+      .catch((error) => console.error('Error fetching user data:', error));
+  }, []);
+
+
+  console.log(userData)
+
 
   function handleOrdersClick() {
     if (orders) {
