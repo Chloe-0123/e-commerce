@@ -2,8 +2,9 @@ import React from 'react'
 
 type formType= {
     
-    name: string
-    
+    name: string,
+    desc?: string,
+    type?: string,
     
   }
 
@@ -16,11 +17,11 @@ export const Textbox = ({ name }:formType) => {
   )
 }
 
-export const Textbox2 = ({ name }:formType) => {
-  return (
+export const Textbox2 = ({ name , type, desc }:formType) => {
+  return ( 
     <div className="tw-w-full tw-mb-4">
-    <p className="tw-pb-2">{name}</p>
-    <input type="text" className="tw-input tw-input-bordered " name = {name} />
+    <p className="tw-pb-2">{desc}</p>
+    <input type={type} className="tw-input tw-input-bordered " name={name} />
 </div>
   )
 }

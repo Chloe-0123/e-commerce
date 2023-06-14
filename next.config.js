@@ -1,6 +1,7 @@
+const withTM = require('next-transpile-modules')(['mysql2']);
 
-module.exports = {
-    images: {
-      domains: ['place-puppy.com'],
-    },
-  };
+module.exports = withTM({
+  images: {
+    domains: ['place-puppy.com'],
+  },
+});

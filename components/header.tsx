@@ -3,8 +3,10 @@ import '../styles/globals.css'
 import Link from 'next/link';
 import React, { useState } from 'react'
 import Navbar from './navbar';
+import { useSession, signIn, signOut } from "next-auth/react"
 
 const Header = () => {
+    const { data: session } = useSession()
     return (
       <>
         <div className="header">
@@ -42,7 +44,7 @@ const Header = () => {
                   <Link href="/profile">Profile</Link>
                 </li>
                 
-                <li><a>Logout</a></li>
+                {session? <li> <Link href={'/'}>Log Out</Link></li> : <li><Link href={'/login'}>Log In</Link></li>}
               </ul>
             </div>
           </div>
