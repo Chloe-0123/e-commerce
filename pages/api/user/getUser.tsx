@@ -1,6 +1,9 @@
 import connection from '../../../config/db';
+import { useSession } from 'next-auth/react';
 
 export default function handler(req: any, res: any) {
+
+  
   try {
     connection.connect((err) => {
       if (err) {

@@ -6,7 +6,7 @@ import { useSession, signOut, signIn } from 'next-auth/react';
 
 const Profile = () => {
 
-  const {data:session, status} = useSession({required:true})
+  const {data:session} = useSession()
 
   if (session) {
     console.log('logged in!')
@@ -44,7 +44,7 @@ const Profile = () => {
   return (
     <>
       <Header />
-      {status === "authenticated" ? <div className="tw-flex" style={{ height: 'calc(100vh - 106px)' }}>
+      {session ? <div className="tw-flex" style={{ height: 'calc(100vh - 106px)' }}>
         <div className="righttab tw-w-[20%] tw-bg-slate-200 tw-h-full ">
           <ul>
             <li>
