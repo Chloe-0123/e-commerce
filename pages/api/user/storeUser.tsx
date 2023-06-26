@@ -1,4 +1,5 @@
 import connection from '../../../config/db';
+const crypto = require('crypto');
 
 export default function SingUpHandler(req:any, res:any) {
   const { firstName, lastName, email, password } = req.body;
@@ -14,21 +15,24 @@ export default function SingUpHandler(req:any, res:any) {
       console.error('Error connecting to MySQL:', err);
       res.status(500).json({ error: 'Error connecting to MySQL' });
     } else {
-      const newUser = {
-        firstName,
-        lastName,
-        email,
-        password,
-      };
+    
+    const hashedPassword = crypto.createHash('sha256').update(password).digest('hex');
 
-      connection.query('INSERT INTO users SET ?', newUser, (error, results) => {
-        if (error) {
-          console.error('Error inserting new user:', error);
-          res.status(500).json({ error: 'Error inserting new user' });
-        } else {
-          res.status(200).json({ message: 'User registered successfully' });
-        }
-      });
+    const newUser = {
+      firstName,
+      lastName,
+      email,
+      password: hashedPassword,
+    };
+
+    connection.query('INSERT INTO user SET ?', newUser, (error, results) => {
+      if (error) {
+        console.error('Error inserting new user:', error);
+        res.status(500).json({ error: 'Error inserting new user' });
+      } else {
+        res.status(200).json({ message: 'User registered successfully' });
+      }
+    });
     }
   });
 }

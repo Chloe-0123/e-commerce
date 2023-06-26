@@ -57,7 +57,7 @@ const Navbar = () => {
               onMouseLeave={handleLivingLeave}
             >
               <DropdownMenu
-                options={['Shop All', 'Sofas', 'Tables', 'Chairs']}
+                options={['Shop All', 'Sofas', 'Tables', 'Chairs']} section={"living"}
               />
             </div>
           )}
@@ -76,7 +76,7 @@ const Navbar = () => {
               onMouseLeave={handleDiningLeave}
             >
               <DropdownMenu
-                options={['Shop All']}
+                options={['Shop All']} section={"dining"}
               />
             </div>
           )}
@@ -95,7 +95,7 @@ const Navbar = () => {
               onMouseLeave={handleBedroomLeave}
             >
               <DropdownMenu
-                options={['Shop All', 'Beds', 'Dressers', 'Chairs']}
+                options={['Shop All', 'Beds', 'Dressers', 'Chairs']} section={"bedroom"}
               />
             </div>
           )}

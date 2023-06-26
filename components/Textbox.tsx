@@ -1,10 +1,12 @@
 import React from 'react'
+import { ChangeEventHandler } from 'react';
 
 type formType= {
     
     name: string,
     desc?: string,
     type?: string,
+    onChange?: ChangeEventHandler<HTMLInputElement>
     
   }
 
@@ -17,11 +19,11 @@ export const Textbox = ({ name }:formType) => {
   )
 }
 
-export const Textbox2 = ({ name , type, desc }:formType) => {
+export const Textbox2 = ({ name , type, desc, onChange }:formType) => {
   return ( 
     <div className="tw-w-full tw-mb-4">
     <p className="tw-pb-2">{desc}</p>
-    <input type={type} className="tw-input tw-input-bordered " name={name} />
+    <input type={type} className="tw-input tw-input-bordered " name={name} onChange={onChange}/>
 </div>
   )
 }
