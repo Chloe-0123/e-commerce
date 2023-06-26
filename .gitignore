@@ -36,3 +36,4 @@ next-env.d.ts
 
 /config/db.js
 
+/pages/auth/[...nextauth].js
