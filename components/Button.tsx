@@ -104,14 +104,14 @@ export const LoginButton = () => {
     return (
       <>
         Signed in as {session.user.email} <br />
-        <button onClick={() => signOut()}>Sign out</button>
+        <button className="tw-px-9 tw-py-3 tw-border-solid tw-border-2 tw-border-black tw-rounded-md" onClick={() => signOut()}>Sign out</button>
       </>
     );
   }
 
   return (
     <>
-      <button onClick={() => signIn()}>Sign In</button>
+      <button className="tw-px-9 tw-py-3 tw-border-solid tw-border-2 tw-border-black tw-rounded-md">Sign In</button>
     </>
   );
 };

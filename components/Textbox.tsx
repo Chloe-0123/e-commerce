@@ -7,6 +7,7 @@ type formType= {
     desc?: string,
     type?: string,
     onChange?: ChangeEventHandler<HTMLInputElement>
+    value?: string,
     
   }
 
