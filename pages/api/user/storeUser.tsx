@@ -25,6 +25,7 @@ export default function SingUpHandler(req:any, res:any) {
       password: hashedPassword,
     };
 
+
     connection.query('INSERT INTO user SET ?', newUser, (error, results) => {
       if (error) {
         console.error('Error inserting new user:', error);
