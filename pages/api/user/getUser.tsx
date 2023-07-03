@@ -7,7 +7,7 @@ export default function handler(req: any, res: any) {
         console.error('Error connecting to MySQL:', err);
         res.status(500).json({ error: 'Error connecting to MySQL' });
       } else {
-        connection.query('SELECT * FROM user', (error, results) => {
+        connection.query("SELECT * FROM user WHERE email = 'chloehkim99@gmail.com'", (error, results) => {
           if (error) {
             console.error('Error fetching users:', error);
             res.status(500).json({ error: 'Error fetching users' });

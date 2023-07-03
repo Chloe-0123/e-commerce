@@ -2,8 +2,15 @@ import React, { useState, useEffect } from 'react';
 import Header from '@/components/header';
 import { Settings } from '@/components/Settings';
 import { Orders } from '@/components/Orders';
+import { useSession, signOut, signIn } from 'next-auth/react';
 
 const Profile = () => {
+
+  const {data:session, status} = useSession({required:true})
+
+  if (session) {
+    console.log('logged in!')
+  }
   const [setting, handleSetting] = useState(true);
   const [orders, handleOrders] = useState(false);
   const [userData, setUserData] = useState(null);
@@ -37,7 +44,7 @@ const Profile = () => {
   return (
     <>
       <Header />
-      <div className="tw-flex" style={{ height: 'calc(100vh - 106px)' }}>
+      {status === "authenticated" ? <div className="tw-flex" style={{ height: 'calc(100vh - 106px)' }}>
         <div className="righttab tw-w-[20%] tw-bg-slate-200 tw-h-full ">
           <ul>
             <li>
@@ -68,7 +75,7 @@ const Profile = () => {
             <Orders />
           )}
         </div>
-      </div>
+      </div> : <div><p>You are not signed in.</p> <button onClick={() => signIn()}>Sign In</button></div>}
     </>
   );
 };
