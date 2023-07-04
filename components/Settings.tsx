@@ -8,17 +8,30 @@ import { Bar } from './Bar'
 interface AccountInfo {
     name: string,
     email: string,
-    streetNumber: number,
-    streetName: string,
-    city: string,
-    ZIP: number,
-    state: string,
-    phoneNumber: number,
+    streetNumber: string | null,
+    streetName: string | null,
+    city: string | null,
+    ZIP: string | null,
+    state: string | null,
+    phoneNumber: string | null,
+    addressAvailable: boolean
 }
 
 
-export const Settings = ({name, email, streetNumber, streetName, city, ZIP, state, phoneNumber}: AccountInfo) => {
+export const Settings = ({name, email, streetNumber, streetName, city, ZIP, state, phoneNumber, addressAvailable}: AccountInfo) => {
 
+    const formatAddress = (streetNumber: string, streetName: string | null, city: string, state: string, ZIP: number) => {
+        if (streetName) {
+            const formattedStreetNumber = streetNumber ? streetNumber.toString() : '';
+            const formattedZIP = ZIP ? ZIP.toString() : '';
+            return `${formattedStreetNumber} ${streetName}, ${city}, ${state} ${formattedZIP}`;
+          }
+          return "No address";
+      };
+    console.log('street name', streetName)
+    console.log(addressAvailable)
+
+   
     const [emailChange, handleEmailChange] = useState(false)
     const [passwordChange, handlePasswordChange] = useState(false)
     const [addressChange, handleAddressChange] = useState(false)
@@ -67,8 +80,8 @@ export const Settings = ({name, email, streetNumber, streetName, city, ZIP, stat
         <div className="address tw-my-8">
             <h5 className='tw-text-[1.5rem] tw-mb-4'>Delivery Address</h5>
             <div className="tw-flex tw-gap-16">
-                <p>Your delivery address is <span className='tw-font-bold'>{streetNumber} {streetName}, {city}, {state} {ZIP}</span>.</p>
-                <a href="#" onClick={() => handleAddressChange(!addressChange)}>Change</a>
+                <p>Your delivery address: <span className='tw-font-bold'>{ addressAvailable ? `${streetNumber} ${streetName}, ${city}, ${state} ${ZIP}` : "We do not have your address yet. Please add one below"}</span>.</p>
+                <a href="#" onClick={() => handleAddressChange(!addressChange)}>Change or Add</a>
             </div>
 
             {addressChange && <>
