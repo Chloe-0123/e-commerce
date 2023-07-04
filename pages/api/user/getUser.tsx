@@ -1,5 +1,6 @@
 import connection from '../../../config/db';
 
+// register & get user
 export default function handler(req: any, res: any) {
   const userEmail = req.query.email;
   console.log('userEmail!!:', userEmail);
