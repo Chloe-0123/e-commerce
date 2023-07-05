@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ConfirmButton } from './Button';
+import { useSession } from 'next-auth/react';
 
 interface Address {
   streetNumber: string;
@@ -7,17 +8,21 @@ interface Address {
   city: string;
   state: string;
   ZIP: string;
+  email: string | undefined | null;
   
 }
 
 export default function AddressForm() {
+
+  const {data:session} = useSession()
+
   const [address, setAddress] = useState<Address>({
     streetNumber: '',
     streetName: '',
     city: '',
     state: '',
     ZIP: '',
-    
+    email: session.user.email,
   });
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,7 +39,7 @@ export default function AddressForm() {
 
     try {
 
-      const response = await fetch('../pages/api/user/storeAddress', {
+      const response = await fetch('api/user/storeAddress', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

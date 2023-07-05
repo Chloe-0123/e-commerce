@@ -1,7 +1,7 @@
 import connection from '../../../config/db';
 const crypto = require('crypto');
 
-export default function AddressHandler(req: any, res: any) {
+export default function addressHandler(req: any, res: any) {
   console.log('req', req)
   const { streetNumber, streetName, city, state, ZIP, email } = req.body;
 
