@@ -20,7 +20,7 @@ const Profile = () => {
     if (session && session.user && session.user.email) {
       const userEmail = session.user.email;
 
-      fetch(`../api/user/getUser?email=${encodeURIComponent(userEmail)}`)
+      fetch(`api/user/getUser?email=${encodeURIComponent(userEmail)}`)
         .then((response) => response.json())
         .then((data) => {
           setUserData(data);

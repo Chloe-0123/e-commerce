@@ -10,12 +10,17 @@ export default function handler(req: any, res: any) {
       if (err) {
         console.error('Error connecting to MySQL:', err);
         res.status(500).json({ error: 'Error connecting to MySQL' });
-      } else {
+      } 
+      
+      
+      else {
         connection.query(`SELECT * FROM user WHERE email = "${userEmail}"`, (error, results) => {
           if (error) {
             console.error('Error fetching users:', error);
             res.status(500).json({ error: 'Error fetching users' });
-          } else {
+          } 
+          
+          else {
             if (results.length === 0) {
               // No user found, insert a new user into the database
               connection.query(
@@ -24,7 +29,9 @@ export default function handler(req: any, res: any) {
                   if (insertError) {
                     console.error('Error inserting new user:', insertError);
                     res.status(500).json({ error: 'Error inserting new user' });
-                  } else {
+                  } 
+                  
+                  else {
                     console.log('New user inserted:', insertResults);
                     // Now you can fetch the user again to get the inserted data
                     connection.query(
@@ -33,7 +40,9 @@ export default function handler(req: any, res: any) {
                         if (fetchError) {
                           console.error('Error fetching new user:', fetchError);
                           res.status(500).json({ error: 'Error fetching new user' });
-                        } else {
+                        } 
+                        
+                        else {
                           console.log('Fetched new user:', fetchResults);
                           res.status(200).json(fetchResults);
                         }

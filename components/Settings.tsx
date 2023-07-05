@@ -80,7 +80,7 @@ export const Settings = ({name, email, streetNumber, streetName, city, ZIP, stat
         <div className="address tw-my-8">
             <h5 className='tw-text-[1.5rem] tw-mb-4'>Delivery Address</h5>
             <div className="tw-flex tw-gap-16">
-                <p>Your delivery address: <span className='tw-font-bold'>{ addressAvailable ? `${streetNumber} ${streetName}, ${city}, ${state} ${ZIP}` : "We do not have your address yet. Please add one below"}</span>.</p>
+                <p>Your delivery address: <span className='tw-font-bold'>{ addressAvailable ? `${streetNumber} ${streetName}, ${city}, ${state} ${ZIP}` : "We do not have your address yet"}</span>.</p>
                 <a href="#" onClick={() => handleAddressChange(!addressChange)}>Change or Add</a>
             </div>
 

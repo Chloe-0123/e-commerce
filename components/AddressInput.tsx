@@ -28,11 +28,33 @@ export default function AddressForm() {
     }));
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: any) => {
     event.preventDefault();
     // Process the address data (e.g., submit to the server)
-    console.log(address);
+
+    try {
+
+      const response = await fetch('../pages/api/user/storeAddress', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(address)
+
+      })
+      if (!response.ok) {
+        // Handle the case when the server returns an error
+        throw new Error('Network response was not ok');
+      } else {
+        console.log('stored')
+      }
+    } catch (error) {
+      console.log('Address input failed: ', error)
+    }
+   
   };
+
+  console.log(address)
 
   return (
     <form onSubmit={handleSubmit} className='tw-flex tw-flex-col tw-gap-6'>
@@ -93,7 +115,9 @@ export default function AddressForm() {
       </div>
       
       <div className="tw-mt-12"></div>
-      <ConfirmButton name="Save"/>
+      <div className="submit">
+    <button className="tw-px-9 tw-py-3 tw-border-solid tw-border-2 tw-border-black tw-rounded-md">Save</button>
+  </div>
     </form>
   );
 }
