@@ -49,9 +49,9 @@ export default function AddressForm() {
       })
       if (!response.ok) {
         // Handle the case when the server returns an error
-        throw new Error('Network response was not ok');
+        throw new Error('Network response was not okay');
       } else {
-        console.log('stored')
+        location.reload();
       }
     } catch (error) {
       console.log('Address input failed: ', error)

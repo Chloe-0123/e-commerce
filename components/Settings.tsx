@@ -3,6 +3,8 @@ import { Textbox3 } from './Textbox'
 import { ConfirmButton } from './Button'
 import AddressForm from './AddressInput'
 import { Bar } from './Bar'
+import { useSession, signOut} from 'next-auth/react'
+import { useRouter } from 'next/router'
 
 
 interface AccountInfo {
@@ -20,6 +22,11 @@ interface AccountInfo {
 
 export const Settings = ({name, email, streetNumber, streetName, city, ZIP, state, phoneNumber, addressAvailable}: AccountInfo) => {
 
+    const router = useRouter();
+    const {data:session} = useSession()
+   
+
+
     const formatAddress = (streetNumber: string, streetName: string | null, city: string, state: string, ZIP: number) => {
         if (streetName) {
             const formattedStreetNumber = streetNumber ? streetNumber.toString() : '';
@@ -35,6 +42,30 @@ export const Settings = ({name, email, streetNumber, streetName, city, ZIP, stat
     const [emailChange, handleEmailChange] = useState(false)
     const [passwordChange, handlePasswordChange] = useState(false)
     const [addressChange, handleAddressChange] = useState(false)
+
+
+
+
+    const handleDelete = async (event:any) => {
+        event.preventDefault()
+        signOut()
+
+        try {
+            const response = await fetch(`api/user/deleteUser?email=${encodeURIComponent(session?.user?.email)}`)
+
+            if (!response.ok) {
+                throw new Error('Network response was not okay')
+            } else {
+                alert("Account Deleted")
+                router.push('/');
+            }
+
+        } catch(err) {
+            console.log('failed to delete user',err)
+        }
+
+        
+    }
 
     return (
 
@@ -100,7 +131,7 @@ export const Settings = ({name, email, streetNumber, streetName, city, ZIP, stat
             <p>Deleting your account will remove all the content associated with it.</p>
             
             <div className="tw-mb-4"></div>
-            <a href="#" className='tw-text-orange-600'>I want to delete my account</a>
+            <button href="#" className='tw-text-orange-600' onClick={handleDelete}>I want to delete my account</button>
         </div>
 
     </div>
