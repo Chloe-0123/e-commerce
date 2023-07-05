@@ -44,7 +44,7 @@ const Header = () => {
                   <Link href="/profile">Profile</Link>
                 </li>
                 
-                {session? <li> <Link href={'/'}>Log Out</Link></li> : <li><Link href={'/login'}>Log In</Link></li>}
+                {session? <li> <Link href="/" onClick={() =>signOut()}>Log Out</Link></li> : <li><Link href={'/auth'}>Log In</Link></li>}
               </ul>
             </div>
           </div>
