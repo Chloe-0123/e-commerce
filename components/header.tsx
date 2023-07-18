@@ -1,12 +1,17 @@
 "use client";
 import '../styles/globals.css'
 import Link from 'next/link';
-import React, { useState } from 'react'
+import React, { useState, createContext } from 'react'
 import Navbar from './navbar';
 import { useSession, signIn, signOut } from "next-auth/react"
+import { useLocalStorageState } from 'use-local-storage-state';
+
 
 const Header = () => {
     const { data: session } = useSession()
+    const CartContext = createContext([]);
+
+    
     return (
       <>
         <div className="header">

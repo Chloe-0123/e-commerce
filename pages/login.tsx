@@ -3,7 +3,7 @@ import Header from '@/components/header'
 import { Textbox2 } from '@/components/Textbox'
 import { LoginButton } from '@/components/Button'
 import Link from 'next/link'
-import { useSession, signIn, signOut } from "next-auth/react"
+import { signIn } from "next-auth/react"
 import { useRouter } from 'next/router';
 
 
