@@ -14,8 +14,8 @@ const Bedroom = () => {
     <div className="tw-h-screen">
       <PageIntro title="The Living Room Collection" p="Timeless shapes designed with luxe detail, handcrafted to order for unparalleled comfort and longevity."/>
       <div className="cards tw-flex tw-gap-x-12 tw-h-fit tw-justify-center tw-mt-20">
-          <VerticalCard imgSrc='img/cozyLivingRoom.jpg' imgDesc='Shop Sofas'/>
-          <VerticalCard imgSrc='img/accent.jpg' imgDesc='Shop Tables'/>
+          <VerticalCard imgSrc='img/cozyLivingRoom.jpg' imgDesc='Shop Beds'/>
+          <VerticalCard imgSrc='img/accent.jpg' imgDesc='Shop Nightstands / Dressers'/>
           <VerticalCard imgSrc='img/chair.jpg' imgDesc='Shop Chairs'/>
       </div>
     </div>
