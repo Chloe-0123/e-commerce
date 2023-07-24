@@ -23,13 +23,13 @@ const MainPage = () => {
           <div className="slide2 tw-h-screen tw-mr-20 tw-ml-20">
             <h2>Design-driven luxury for the modern home—handcrafted to the highest standards by our North Carolina artisans.</h2>
             <div className="cards tw-flex tw-gap-x-6 tw-h-2/5">
-            <Cards imgSrc="https://place-puppy.com/300x300" imgName="Sofas" imgDesc="Timeless shapes designed with unparalleled comfort."/>
-            <Cards imgSrc="https://place-puppy.com/300x300" imgName="Chairs" imgDesc="Timeless shapes designed with unparalleled comfort."/>
-            <Cards imgSrc="https://place-puppy.com/300x300" imgName="Bedroom" imgDesc="Timeless shapes designed with unparalleled comfort."/>
+            <Cards imgSrc="/img/chair.jpg" imgName="Living" imgDesc="Timeless shapes designed with unparalleled comfort." href="/living"/>
+            <Cards imgSrc="/img/accent.jpg" imgName="Dining" imgDesc="Timeless shapes designed with unparalleled comfort." href="/dining"/>
+            <Cards imgSrc="/img/bednmug.jpg" imgName="Bedroom" imgDesc="Timeless shapes designed with unparalleled comfort." orientation="bg-bottom" href="/bedroom"/>
             </div>
 
             <div className="shopButton tw-m-24 tw-flex tw-justify-center">
-                <a href="#" className="tw-px-9 tw-py-3 tw-border-solid tw-border-2 tw-border-black">Shop</a>
+                <Link href="/shopByRoom" className="tw-px-9 tw-py-3 tw-border-solid tw-border-2 tw-border-black">Shop</Link>
             </div>
             
             
@@ -38,7 +38,7 @@ const MainPage = () => {
 
           <div className="shopByRoom tw-flex tw-bg-[rgb(250,249,247)] tw-w-screen tw-justify-center">
             <div className="img tw-p-12">
-                <Image src="https://place-puppy.com/300x500" alt="" width={300} height={500} />
+                <Image src="/img/blanket.jpg" alt="" width={300} height={500} />
             </div>
             <div className="getInspired tw-flex tw-flex-col tw-justify-center tw-gap-12">
                 <div className="getInspiredText">
