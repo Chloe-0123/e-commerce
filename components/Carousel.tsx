@@ -1,4 +1,4 @@
-import React, { useState, CSSProperties } from 'react'
+import React, { useState, CSSProperties, useEffect } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -12,8 +12,21 @@ export const PCarousel = () => {
 
 
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
+  const [carouselData, setCarouselData] = useState(null)
+
+  useEffect(() => {
+    fetch('api/product/getProducts')
+      .then((response) => response.json())
+      .then((data) => {
+        setCarouselData(data)
+      })
+      .catch((error) => {
+        console.error('Error fetching product data:', error);
+      })
+  }, [])
   
 
+  console.log('carousel data',carouselData)
 
   return (
     <>

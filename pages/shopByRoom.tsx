@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Flickity from 'react-flickity-component';
 import '../styles/flickity.css';
 import Header from '../components/header'
@@ -7,6 +7,23 @@ import Footer from '@/components/Footer';
 import { MainPic } from '@/components/MainPic';
 
 const ShopByRoomPage: React.FC = () => {
+
+  const [carouselData, setCarouselData] = useState(null)
+
+  useEffect(() => {
+    fetch('api/product/getProducts')
+      .then((response) => response.json())
+      .then((data) => {
+        setCarouselData(data)
+      })
+      .catch((error) => {
+        console.error('Error fetching product data:', error);
+      })
+  }, [])
+
+  console.log('carouselData: ',carouselData)
+
+
   const flickityOptions = {
     initialIndex: 2,
     wrapAround: true,
