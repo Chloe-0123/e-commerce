@@ -5,10 +5,15 @@ import Header from '../components/header'
 import { ShopTheCollectionButton } from '@/components/Button';
 import Footer from '@/components/Footer';
 import { MainPic } from '@/components/MainPic';
+import Image from 'next/image';
+
 
 const ShopByRoomPage: React.FC = () => {
 
   const [carouselData, setCarouselData] = useState(null)
+  let livingProducts
+  let diningProducts
+  let bedroomProducts
 
   useEffect(() => {
     fetch('api/product/getProducts')
@@ -22,9 +27,23 @@ const ShopByRoomPage: React.FC = () => {
   }, [])
 
   console.log('carouselData: ',carouselData)
+  if (carouselData) {
+
+    livingProducts = carouselData.filter(data => data.category_id === 1).slice(0,5)
+    
+    diningProducts = carouselData.filter(data => data.category_id === 2).slice(0,5)
+    
+    bedroomProducts = carouselData.filter(data => data.category_id === 3).slice(0,5)
+    
+
+    console.log('living',livingProducts)
+    console.log('dining',diningProducts)
+    console.log('bedroom',bedroomProducts)
+  }
+  
 
 
-  const flickityOptions = {
+  const flickityOptions = { 
     initialIndex: 2,
     wrapAround: true,
   };
@@ -32,7 +51,7 @@ const ShopByRoomPage: React.FC = () => {
   return (
     <>
       <Header />
-      <MainPic url='img/mainPage.jpg'/>
+      {carouselData && <><MainPic url='img/mainPage.jpg'/>
 
       <p>Designing a room with thoughtfully curated pieces sets the tone for a completed look you’ll love for years to come. Discover our favorite looks across the home to inspire your space.</p>
 
@@ -49,22 +68,14 @@ const ShopByRoomPage: React.FC = () => {
           disableImagesLoaded={false}
           reloadOnUpdate
           static
-        >
-          <a href="/product" className='carousel-cell'>
-            <img src="https://place-puppy.com/500x300" alt="Puppy 1" />
+        > 
+        {livingProducts.map((product) => (
+          <a key={product.product_id} href={`/product/${product.product_id}`} className='carousel-cell'>
+          <div className="tw-h-[300px]">
+          <Image src={`/${product.file_location}`} alt={`Product ${product.name}`} width={500} height={300}></Image>
+          </div>
           </a>
-          <a href="/product" className='carousel-cell'>
-            <img src="https://place-puppy.com/500x300" alt="Puppy 2" />
-          </a>
-          <a href="/product" className='carousel-cell'>
-            <img src="https://place-puppy.com/500x300" alt="Puppy 3" />
-          </a>
-          <a href="/product" className='carousel-cell'>
-            <img src="https://place-puppy.com/500x300" alt="Puppy 4" />
-          </a>
-          <a href="/product" className='carousel-cell'>
-            <img src="https://place-puppy.com/500x300" alt="Puppy 5" />
-          </a>
+        ))}
         </Flickity>
         
         <ShopTheCollectionButton path="/living"/>
@@ -82,21 +93,13 @@ const ShopByRoomPage: React.FC = () => {
           reloadOnUpdate
           static
         >
-          <a href="#" className='carousel-cell'>
-            <img src="https://place-puppy.com/500x300" alt="Puppy 1" />
+        {diningProducts.map((product) => (
+          <a key={product.product_id} href={`/product/${product.product_id}`} className='carousel-cell'>
+          <div className="tw-h-[300px]">
+          <Image src={`/${product.file_location}`} alt={`Product ${product.name}`} width={500} height={300}></Image>
+          </div>
           </a>
-          <a href="#" className='carousel-cell'>
-            <img src="https://place-puppy.com/500x300" alt="Puppy 2" />
-          </a>
-          <a href="#" className='carousel-cell'>
-            <img src="https://place-puppy.com/500x300" alt="Puppy 3" />
-          </a>
-          <a href="#" className='carousel-cell'>
-            <img src="https://place-puppy.com/500x300" alt="Puppy 4" />
-          </a>
-          <a href="#" className='carousel-cell'>
-            <img src="https://place-puppy.com/500x300" alt="Puppy 5" />
-          </a>
+        ))}
         </Flickity>
           
         <ShopTheCollectionButton path="/dining"/>
@@ -114,25 +117,17 @@ const ShopByRoomPage: React.FC = () => {
           reloadOnUpdate
           static
         >
-          <a href="#" className='carousel-cell'>
-            <img src="https://place-puppy.com/500x300" alt="Puppy 1" />
+        {bedroomProducts.map((product) => (
+          <a key={product.product_id} href={`/product/${product.product_id}`} className='carousel-cell'>
+          <div className="tw-h-[300px] tw-w-[500px]">
+          <Image src={`/${product.file_location}`} alt={`Product ${product.name}`} width={500} height={500 * (9/16)} style={{ objectFit: "cover" }}></Image>
+          </div>
           </a>
-          <a href="#" className='carousel-cell'>
-            <img src="https://place-puppy.com/500x300" alt="Puppy 2" />
-          </a>
-          <a href="#" className='carousel-cell'>
-            <img src="https://place-puppy.com/500x300" alt="Puppy 3" />
-          </a>
-          <a href="#" className='carousel-cell'>
-            <img src="https://place-puppy.com/500x300" alt="Puppy 4" />
-          </a>
-          <a href="#" className='carousel-cell'>
-            <img src="https://place-puppy.com/500x300" alt="Puppy 5" />
-          </a>
+        ))}
         </Flickity>
           
         <ShopTheCollectionButton path="/bedroom"/>
-      </div>
+      </div></>}
       <Footer />
     </>
   );
