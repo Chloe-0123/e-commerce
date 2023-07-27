@@ -16,7 +16,8 @@ const ProductPage = () => {
 
     useEffect(() => {
         if (id) {
-          fetch(`/api/product/getOneProduct/${id}`)
+
+          fetch(`/api/product/getOneProduct?id=${id}`)
             .then((response) => response.json())
             .then((data) => {
               console.log('Fetch response:', data);
@@ -27,6 +28,8 @@ const ProductPage = () => {
             });
         }
       }, [id]);
+      
+
       
 
     return (

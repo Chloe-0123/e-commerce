@@ -3,6 +3,8 @@ import connection from '../../../config/db';
 
 //fetch product data
 export default function getProducts(req:any, res:any) {
+
+    console.log('GETPRODUCTS!!')
     try {
         connection.connect((err) => {
             if (err) {

@@ -4,10 +4,22 @@ import { MainPic } from '@/components/MainPic';
 import Footer from '@/components/Footer';
 import { ShopTheCollectionButton } from '@/components/Button';
 import { Textbox } from '@/components/Textbox';
+import { useEffect } from 'react';
 
 const Services = () => {
 
-
+  /*useEffect(() => {
+    
+      fetch(`/api/product/getOneProduct`)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log('Fetch response:', data);
+        })
+        .catch((error) => {
+          console.log('Error fetching product data 1:', error);
+        });
+    }
+  , []);*/
 
 
   return (
