@@ -5,28 +5,23 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import '../styles/productCarousel.css'
-
 import { FreeMode, Navigation, Thumbs } from "swiper";
+import Image from 'next/image';
 
-export const PCarousel = () => {
+interface CarouselProps {
+  image_location: string
+  name: string
+}
+
+export const PCarousel = ({ image_location , name }: CarouselProps) => {
 
 
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
   const [carouselData, setCarouselData] = useState(null)
 
-  useEffect(() => {
-    fetch('api/product/getProducts')
-      .then((response) => response.json())
-      .then((data) => {
-        setCarouselData(data)
-      })
-      .catch((error) => {
-        console.error('Error fetching product data:', error);
-      })
-  }, [])
-  
 
   console.log('carousel data',carouselData)
+  console.log(image_location)
 
   return (
     <>
@@ -45,7 +40,7 @@ export const PCarousel = () => {
         className="mySwiper2"
       >
       <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+        <Image src={`/${image_location}`} alt={`${name}`} width={500} height={500 * (9/16)} style={{ objectFit: "cover" }}></Image>
         </SwiperSlide>
         <SwiperSlide>
           <img src="https://swiperjs.com/demos/images/nature-7.jpg" />

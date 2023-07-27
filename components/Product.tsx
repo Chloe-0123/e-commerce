@@ -45,11 +45,11 @@ export const ProductDesc = ({ productName, productPrice, productDesc}: ProductDe
 
     <div className="productdesc tw-w-[30%] tw-h-[80vh]  tw-p-10">
 
-      <div className="tw-flex tw-justify-between ">
-      <h3>{productName}</h3>
-      <h3>${productPrice}</h3>
+      <div className="">
+      <h3 className='tw-text-[2rem]'>{productName}</h3>
+      <h3 className='tw-text-[1.2rem] tw-mb-8'>${productPrice}</h3>
       </div>
-      <p>{productDesc}</p>
+      <p className='tw-mb-8'>{productDesc}</p>
       <QuantityAdd />
 
 
