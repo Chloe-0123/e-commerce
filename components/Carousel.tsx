@@ -68,7 +68,7 @@ export const PCarousel = ({ image_location , name }: CarouselProps) => {
         className="mySwiper"
       >
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+        <Image src={`/${image_location}`} alt={`${name}`} width={500} height={500 * (9/16)} style={{ objectFit: "cover" }}></Image>
         </SwiperSlide>
         <SwiperSlide>
           <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
