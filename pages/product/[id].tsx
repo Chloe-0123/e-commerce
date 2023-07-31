@@ -37,7 +37,7 @@ const ProductPage = () => {
   return (
     <>
       <Header />
-      <div className='tw-flex'>
+      <div className='tw-flex tw-mt-8'>
         <div className="swipers">
           {productData.length > 0 && <PCarousel image_location={productData[0].file_location} name={productData[0].name}/>}
         </div>

@@ -45,14 +45,22 @@ export const Quantity = ({quantity, setQuantity}:any) => {
   )
 }
 
-export const AddToCart = ({quantity}:any) => {
+
+interface AddToCartProps {
+  quantity: number;
+  productName: string;
+  productPrice: number;
+
+}
+export const AddToCart = ({ quantity, productName, productPrice }:AddToCartProps) => {
 
   const [clicked, setClicked] = useState(false)
 
   function handleClicked() {
-    setClicked(true)
-    alert(quantity)
-    setClicked(false)
+    /*setClicked(true)
+    alert(`${quantity} ${productName} ${productPrice}`)
+    
+    setClicked(false)*/
 
   }
 
@@ -60,28 +68,39 @@ export const AddToCart = ({quantity}:any) => {
     <>
     
     
-    <div className="shopButton tw-flex tw-justify-center tw-mt-6 tw-w-full">
-      <a href="#" className="tw-text-center tw-py-3 tw-border-solid tw-border-[1px] tw-border-black tw-w-full" onClick={handleClicked}>Add to Cart</a>
+    <div className="shopButton tw-flex-col tw-items-center tw-mt-6 tw-w-full">
+      <a href="#" className="tw-block tw-text-center tw-py-3 tw-border-solid tw-border-[1px] tw-border-black tw-w-full" onClick={() => setClicked(!clicked)}>Add to Cart</a>
+
+      {clicked && 
+        <div className="tw-alert tw-alert-success tw-mt-4">
+        <svg xmlns="http://www.w3.org/2000/svg" className="tw-stroke-current tw-shrink-0 tw-h-6 tw-w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        <span>{quantity} {productName}(s) added to cart!</span>
+        </div>}
     </div>
+   
     
    
   
   </>
-
-    //figure out a way to get the quantity number when 'add to cart' button is clicked
 
 
   )
 }
 
 // Parent component where the Quantity and AddToCart components are used together
-export const QuantityAdd = () => {
+
+interface QuantityAddProps {
+  productName: string;
+  productPrice: number;
+}
+
+export const QuantityAdd = ({ productName, productPrice }: QuantityAddProps ) => {
   const [quantity, setQuantity] = useState(1);
 
   return (
     <>
       <Quantity quantity={quantity} setQuantity={setQuantity} />
-      <AddToCart quantity={quantity} />
+      <AddToCart quantity={quantity} productName={productName} productPrice={productPrice}/>
     </>
   );
 };

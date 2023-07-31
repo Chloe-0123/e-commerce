@@ -50,7 +50,7 @@ export const ProductDesc = ({ productName, productPrice, productDesc}: ProductDe
       <h3 className='tw-text-[1.2rem] tw-mb-8'>${productPrice}</h3>
       </div>
       <p className='tw-mb-8'>{productDesc}</p>
-      <QuantityAdd />
+      <QuantityAdd productName={productName} productPrice={productPrice}/>
 
 
     </div>
