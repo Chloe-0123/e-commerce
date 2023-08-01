@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
-import { SessionProvider, useSession, signIn, signOut } from "next-auth/react"
+import { SessionProvider, useSession, signIn, signOut } from 
+"next-auth/react"
+import CartIcon from './CartIcon'
 
 interface buttonProps {
   path: string
@@ -56,12 +58,33 @@ export const AddToCart = ({ quantity, productName, productPrice }:AddToCartProps
 
   const [clicked, setClicked] = useState(false)
 
+
   function handleClicked() {
     /*setClicked(true)
     alert(`${quantity} ${productName} ${productPrice}`)
     
     setClicked(false)*/
 
+    setClicked(true)
+    //check for existing cart
+    
+    const existingCart = JSON.parse(localStorage.getItem('cart')) || [];
+    console.log('existing cart' , existingCart)
+
+    // Check if the item is already in the cart based on its unique identifier (e.g., product ID)
+    const itemIndex = existingCart.findIndex((cartItem) => cartItem.name === productName)
+
+    if(itemIndex === -1){
+      existingCart.push({name:productName, number:quantity, price:productPrice})
+    } else {
+      existingCart[itemIndex].number += quantity
+    }
+
+    const cartToString = JSON.stringify(existingCart)
+    localStorage.setItem('cart', cartToString)
+    const event = new Event('one item added')
+    document.dispatchEvent(event)
+    
   }
 
   return(
@@ -69,12 +92,12 @@ export const AddToCart = ({ quantity, productName, productPrice }:AddToCartProps
     
     
     <div className="shopButton tw-flex-col tw-items-center tw-mt-6 tw-w-full">
-      <a href="#" className="tw-block tw-text-center tw-py-3 tw-border-solid tw-border-[1px] tw-border-black tw-w-full" onClick={() => setClicked(!clicked)}>Add to Cart</a>
+      <a href="#" className="tw-block tw-text-center tw-py-3 tw-border-solid tw-border-[1px] tw-border-black tw-w-full" onClick={handleClicked}>Add to Cart</a>
 
       {clicked && 
         <div className="tw-alert tw-alert-success tw-mt-4">
         <svg xmlns="http://www.w3.org/2000/svg" className="tw-stroke-current tw-shrink-0 tw-h-6 tw-w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-        <span>{quantity} {productName}(s) added to cart!</span>
+        <span>Added to Cart!</span>
         </div>}
     </div>
    
