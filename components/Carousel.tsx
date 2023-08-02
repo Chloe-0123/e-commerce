@@ -20,8 +20,7 @@ export const PCarousel = ({ image_location , name }: CarouselProps) => {
   const [carouselData, setCarouselData] = useState(null)
 
 
-  console.log('carousel data',carouselData)
-  console.log(image_location)
+
 
   return (
     <>

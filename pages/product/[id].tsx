@@ -32,7 +32,7 @@ const ProductPage = () => {
     }
   }, [id]);
 
-  console.log('product data', productData);
+
 
   return (
     <>

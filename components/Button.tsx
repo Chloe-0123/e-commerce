@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { SessionProvider, useSession, signIn, signOut } from 
 "next-auth/react"
 import CartIcon from './CartIcon'
+import { CartContext } from './CartContext'
 
 interface buttonProps {
   path: string
@@ -55,6 +56,8 @@ interface AddToCartProps {
 
 }
 export const AddToCart = ({ quantity, productName, productPrice }:AddToCartProps) => {
+ const {  cartProducts,setCartProducts }= useContext(CartContext)
+
 
   const [clicked, setClicked] = useState(false)
 
@@ -84,8 +87,13 @@ export const AddToCart = ({ quantity, productName, productPrice }:AddToCartProps
     localStorage.setItem('cart', cartToString)
     const event = new Event('one item added')
     document.dispatchEvent(event)
+
+    setCartProducts(existingCart)
+
     
   }
+
+  console.log('context: ', cartProducts)
 
   return(
     <>
