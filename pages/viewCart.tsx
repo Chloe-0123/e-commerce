@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useContext, useState} from 'react'
 import Header from '@/components/header'
 import { ConfirmButton } from '@/components/Button'
 import { CartItem } from '@/components/CartItem'
+import { CartContext } from '@/components/CartContext'
 
 const ViewCart = () => {
+   
+    const {  cartProducts,setCartProducts }= useContext(CartContext)
+
 
     const [items, setItems] = useState([])
     const [total, setTotal] = useState(0)
@@ -12,15 +16,16 @@ const ViewCart = () => {
     useEffect (() => {
         const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
         setItems(cartItems)
+        console.log('c', setItems)
 
-        const mapped = cartItems.map((item) => Number(item.price))
+        const mapped = cartItems.map((item) => (Number(item.price) * item.number))
         const totalprice = mapped.reduce((a,c) => a + c, 0)
 
         setTotal(totalprice)
        
 
 
-    },[])
+    },[cartProducts])
 
     return (
         <>  
@@ -48,7 +53,7 @@ const ViewCart = () => {
         </table>
         </div>
 
-        <div className="tw-mt-16">Total: ${total}</div>
+        <div className="tw-mt-16">Total: ${total.toFixed(2)}</div>
         <div className="tw-flex tw-justify-center tw-mt-32">
             <ConfirmButton name="Order All" />
         </div>

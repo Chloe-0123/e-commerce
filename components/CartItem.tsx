@@ -32,7 +32,7 @@ export const CartItem = ({ name, quantity, price, id}: cartItems) => {
             <br/>
             
             </td>
-            <td>${price*quantity}</td>
+            <td>${(price*quantity).toFixed(2)}</td>
             <th>
             <Link href={`/product/${id}`} className="tw-btn tw-btn-ghost tw-btn-xs">DETAILS</Link>
             </th>
