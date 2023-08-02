@@ -47,6 +47,7 @@ const ProductPage = () => {
             productDesc={productData[0].desc} // Assuming there's only one product with the given id
             productName={productData[0].name}
             productPrice={productData[0].price}
+            productId={productData[0].product_id}
           />
         )}
       </div>

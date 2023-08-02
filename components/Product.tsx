@@ -37,9 +37,10 @@ interface ProductDescProps {
   productName: string,
   productPrice: number,
   productDesc: string
+  productId: number
 
 }
-export const ProductDesc = ({ productName, productPrice, productDesc}: ProductDescProps) => {
+export const ProductDesc = ({ productName, productPrice, productDesc, productId}: ProductDescProps) => {
 
   return (
 
@@ -50,7 +51,7 @@ export const ProductDesc = ({ productName, productPrice, productDesc}: ProductDe
       <h3 className='tw-text-[1.2rem] tw-mb-8'>${productPrice}</h3>
       </div>
       <p className='tw-mb-8'>{productDesc}</p>
-      <QuantityAdd productName={productName} productPrice={productPrice}/>
+      <QuantityAdd productName={productName} productPrice={productPrice} productId={productId}/>
 
 
     </div>

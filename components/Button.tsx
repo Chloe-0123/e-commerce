@@ -53,9 +53,10 @@ interface AddToCartProps {
   quantity: number;
   productName: string;
   productPrice: number;
+  productId?: number;
 
 }
-export const AddToCart = ({ quantity, productName, productPrice }:AddToCartProps) => {
+export const AddToCart = ({ quantity, productName, productPrice, productId }:AddToCartProps) => {
  const {  cartProducts,setCartProducts }= useContext(CartContext)
 
 
@@ -78,7 +79,7 @@ export const AddToCart = ({ quantity, productName, productPrice }:AddToCartProps
     const itemIndex = existingCart.findIndex((cartItem) => cartItem.name === productName)
 
     if(itemIndex === -1){
-      existingCart.push({name:productName, number:quantity, price:productPrice})
+      existingCart.push({name:productName, number:quantity, price:productPrice, id:productId})
     } else {
       existingCart[itemIndex].number += quantity
     }
@@ -123,15 +124,17 @@ export const AddToCart = ({ quantity, productName, productPrice }:AddToCartProps
 interface QuantityAddProps {
   productName: string;
   productPrice: number;
+  productId?: number;
+
 }
 
-export const QuantityAdd = ({ productName, productPrice }: QuantityAddProps ) => {
+export const QuantityAdd = ({ productName, productPrice, productId }: QuantityAddProps ) => {
   const [quantity, setQuantity] = useState(1);
 
   return (
     <>
       <Quantity quantity={quantity} setQuantity={setQuantity} />
-      <AddToCart quantity={quantity} productName={productName} productPrice={productPrice}/>
+      <AddToCart quantity={quantity} productName={productName} productPrice={productPrice} productId={productId}/>
     </>
   );
 };
