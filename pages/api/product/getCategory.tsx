@@ -1,10 +1,8 @@
-// pages/api/product/getOneProduct.js
-
 import connection from '../../../config/db';
 
 // API endpoint to fetch a single product by id
-export default function getOneProduct(req:any, res:any) {
-    console.log('YES')
+export default function getCategory(req:any, res:any) {
+    console.log('CATEGORY')
 
   const { id } = req.query;
   console.log(req.query)
@@ -16,7 +14,7 @@ export default function getOneProduct(req:any, res:any) {
         console.error('Error connecting to MySQL:', err);
         res.status(500).json({ error: 'Error connecting to MySQL' });
       } else {
-        connection.query(`SELECT * FROM products where product_id = ?`, [id], (error, results) => {
+        connection.query(`SELECT * FROM products where category_id = ?`, [id], (error, results) => {
           if (error) {
             console.error('Error fetching the product:', error);
             res.status(500).json({ error: 'Error fetching the product' });

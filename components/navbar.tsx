@@ -49,7 +49,7 @@ const Navbar = () => {
           onMouseEnter={handleLivingEnter}
           onMouseLeave={handleLivingLeave}
         >
-          <a href='/living' className="tw-block tw-bg-gray-200 tw-hover:bg-gray-300 tw-py-2 tw-px-4 tw-rounded"> LIVING </a>
+          <a href='/shop/1' className="tw-block tw-bg-gray-200 tw-hover:bg-gray-300 tw-py-2 tw-px-4 tw-rounded"> LIVING </a>
           {isLivingOpen && (
             <div
               className="livingDropdown"

@@ -7,13 +7,14 @@ interface ProductProps {
   url: string,
   name: string,
   price: number
+  product_id: string
 }
 
-export const Product = ({ url, name, price }:ProductProps) => {
+export const Product = ({ url, name, price, product_id }:ProductProps) => {
   return (
     <>
     <div className="tw-w-[43%] tw-py-8">
-      <Link href="/product">
+      <Link href={`/product/${product_id}`}>
       <div
         className="tw-bg-cover tw-bg-[left_calc(0%)_top_calc(75%)] tw-bg-center tw-h-[400px]"
         style={{ backgroundImage: `url(${url})` }}
