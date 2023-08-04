@@ -9,10 +9,11 @@ const MainPage = () => {
       <>
         <div className="mainPage">
           <div className="slide1">
-            <a href="#" className="mainPic tw-block tw-h-screen" style={{
+
+            <Link href='/shopByRoom' className="mainPic tw-block tw-h-screen"  style={{
               backgroundImage: "url('img/mainPage.jpg')",
               backgroundSize: 'cover',
-            }}></a>
+            }}></Link>
             <div className="mainPageText tw-absolute tw-top-64 tw-left-16 tw-flex tw-flex-col tw-gap-4">
               <h2 className='tw-text-5xl'>New Arrivals</h2>
               <h6>SHOP COLLECTION</h6>

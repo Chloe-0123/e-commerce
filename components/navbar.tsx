@@ -57,7 +57,7 @@ const Navbar = () => {
               onMouseLeave={handleLivingLeave}
             >
               <DropdownMenu
-                options={['Shop All', 'Sofas', 'Tables', 'Chairs']} section={"living"}
+                options={['Shop All', 'Sofas', 'Tables', 'Chairs']} section={"/shop/1"}
               />
             </div>
           )}
@@ -68,7 +68,7 @@ const Navbar = () => {
           onMouseEnter={handleDiningEnter}
           onMouseLeave={handleDiningLeave}
         >
-          <a href='/dining' className="tw-block tw-bg-gray-200 tw-hover:bg-gray-300 tw-py-2 tw-px-4 tw-rounded"> DINING </a>
+          <a href='/shop/2' className="tw-block tw-bg-gray-200 tw-hover:bg-gray-300 tw-py-2 tw-px-4 tw-rounded"> DINING </a>
           {isDiningOpen && (
             <div
               className="diningDropdown"
@@ -76,7 +76,7 @@ const Navbar = () => {
               onMouseLeave={handleDiningLeave}
             >
               <DropdownMenu
-                options={['Shop All']} section={"dining"}
+                options={['Shop All']} section={"/shop/2"}
               />
             </div>
           )}
@@ -87,7 +87,7 @@ const Navbar = () => {
           onMouseEnter={handleBedroomEnter}
           onMouseLeave={handleBedroomLeave}
         >
-          <a href='/bedroom' className="tw-block tw-bg-gray-200 tw-hover:bg-gray-300 tw-py-2 tw-px-4 tw-rounded"> BEDROOM </a>
+          <a href='/shop/3' className="tw-block tw-bg-gray-200 tw-hover:bg-gray-300 tw-py-2 tw-px-4 tw-rounded"> BEDROOM </a>
           {isBedroomOpen && (
             <div
               className="bedroomDropdown"
@@ -95,7 +95,7 @@ const Navbar = () => {
               onMouseLeave={handleBedroomLeave}
             >
               <DropdownMenu
-                options={['Shop All', 'Beds', 'Dressers', 'Chairs']} section={"bedroom"}
+                options={['Shop All', 'Beds', 'Dressers', 'Chairs']} section={"/shop/3"}
               />
             </div>
           )}
