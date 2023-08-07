@@ -14,7 +14,7 @@ export default function deleteUser(req: any, res: any) {
             } 
 
             else {
-                connection.query(`DELETE FROM user WHERE email = "${userEmail}"`, (error, results) => {
+                connection.query(`DELETE FROM users WHERE email = "${userEmail}"`, (error, results) => {
                     if (error) {
                         console.error('Error fetching users:', error);
                         res.status(500).json({ error: 'Error fetching users' });

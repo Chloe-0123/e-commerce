@@ -14,7 +14,7 @@ export default function handler(req: any, res: any) {
       
       
       else {
-        connection.query(`SELECT * FROM user WHERE email = "${userEmail}"`, (error, results) => {
+        connection.query(`SELECT * FROM users WHERE email = "${userEmail}"`, (error, results) => {
           if (error) {
             console.error('Error fetching users:', error);
             res.status(500).json({ error: 'Error fetching users' });
@@ -35,7 +35,7 @@ export default function handler(req: any, res: any) {
                     console.log('New user inserted:', insertResults);
                     // Now you can fetch the user again to get the inserted data
                     connection.query(
-                      `SELECT * FROM user WHERE email = "${userEmail}"`,
+                      `SELECT * FROM users WHERE email = "${userEmail}"`,
                       (fetchError, fetchResults) => {
                         if (fetchError) {
                           console.error('Error fetching new user:', fetchError);

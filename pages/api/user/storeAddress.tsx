@@ -17,7 +17,7 @@ export default function addressHandler(req: any, res: any) {
       res.status(500).json({ error: 'Error connecting to MySQL' });
     } else {
       // First, check if the user with the given email exists in the database
-      connection.query('SELECT id FROM user WHERE email = ?', [email], (error, results) => {
+      connection.query('SELECT id FROM users WHERE email = ?', [email], (error, results) => {
         if (error) {
           console.error('Error querying user:', error);
           res.status(500).json({ error: 'Error querying user' });
@@ -30,7 +30,7 @@ export default function addressHandler(req: any, res: any) {
             const userId = results[0].id;
             // Now that you have the userId, you can update the address information for that user
             const updateQuery = `
-              UPDATE user
+              UPDATE users
               SET streetNumber = ?, streetName = ?, city = ?, state = ?, ZIP = ?
               WHERE id = ?
             `;
