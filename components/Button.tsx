@@ -58,21 +58,20 @@ interface AddToCartProps {
 }
 export const AddToCart = ({ quantity, productName, productPrice, productId }:AddToCartProps) => {
  const {  cartProducts,setCartProducts }= useContext(CartContext)
+ const {data:session} = useSession()
 
 
   const [clicked, setClicked] = useState(false)
 
 
   function handleClicked() {
-    /*setClicked(true)
-    alert(`${quantity} ${productName} ${productPrice}`)
-    
-    setClicked(false)*/
+    if (session && session.user ) {
 
-    setClicked(true)
+      setClicked(true)
     //check for existing cart
     
-    const existingCart = JSON.parse(localStorage.getItem('cart')) || [];
+    //const existingCart = JSON.parse(localStorage.getItem('cart')) || [];
+    const existingCart = JSON.parse(localStorage.getItem(session.user.email)) || [];
     console.log('existing cart' , existingCart)
 
     // Check if the item is already in the cart based on its unique identifier (e.g., product ID)
@@ -85,11 +84,14 @@ export const AddToCart = ({ quantity, productName, productPrice, productId }:Add
     }
 
     const cartToString = JSON.stringify(existingCart)
-    localStorage.setItem('cart', cartToString)
+    localStorage.setItem(session.user.email, cartToString)
     const event = new Event('one item added')
     document.dispatchEvent(event)
 
     setCartProducts(existingCart)
+
+    }
+    
 
     
   }

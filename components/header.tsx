@@ -23,7 +23,7 @@ const Header = () => {
             <a className="tw-normal-case tw-text-xl" href='/'>Modish Moments</a>
           </div>
           <div className="cart-and-profile tw-flex tw-w-[30%] tw-justify-end tw-flex tw-gap-4">
-            <CartIcon />
+            {session && <CartIcon />}
             <div className="profile-icon tw-dropdown tw-dropdown-end">
               <label tabIndex={0} className="tw-btn tw-btn-ghost tw-btn-circle tw-avatar">
                 <div className="tw-w-10 tw-rounded-full">

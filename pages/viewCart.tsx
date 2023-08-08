@@ -3,10 +3,16 @@ import Header from '@/components/header'
 import { ConfirmButton } from '@/components/Button'
 import { CartItem } from '@/components/CartItem'
 import { CartContext } from '@/components/CartContext'
-import { useSession } from 'next-auth/react';
+import { useSession, signIn } from 'next-auth/react';
 
 const ViewCart = () => {
    
+
+    const {data:session} = useSession()
+
+ 
+
+
     const {  cartProducts, setCartProducts } = useContext(CartContext)
 
 
@@ -15,22 +21,31 @@ const ViewCart = () => {
 
 
     useEffect (() => {
-        const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-        setItems(cartItems)
-        console.log('c', setItems)
+        if (session && session.user.email) {
 
-        const mapped = cartItems.map((item) => (Number(item.price) * item.number))
-        const totalprice = mapped.reduce((a,c) => a + c, 0)
+            const cartItems = JSON.parse(localStorage.getItem(session.user?.email)) || [];
+            setItems(cartItems)
+            console.log('c', setItems)
+    
+            const mapped = cartItems.map((item) => (Number(item.price) * item.number))
+            const totalprice = mapped.reduce((a,c) => a + c, 0)
+    
+            setTotal(totalprice)
 
-        setTotal(totalprice)
+        }
+       
        
 
 
     },[cartProducts])
 
     return (
-        <>  
-        <Header />
+        
+      <> 
+       <Header /> 
+      {session ? <>
+        
+       
         <h1 className='tw-mt-16 tw-mb-16'>Shopping Cart</h1>
         <div className="tw-overflow-x-auto tw-w-full">
         <table className="tw-table w-full tw-bg-amber-100">
@@ -63,6 +78,11 @@ const ViewCart = () => {
         </div>
     
 
+      
+      </> : <div>
+          <p>You are not signed in.</p> <button onClick={() => signIn()}>Sign In</button>
+        </div>}
+        
         </>
     
   )
