@@ -26,7 +26,7 @@ const Services = () => {
 
     <>
       <Header />
-      <MainPic url='img/mainPage.jpg' text={true}/>
+      <MainPic url='img/mainPage.jpg' text="The Atelier"/>
       <div>
         <p>A modern alternative to the custom workroom. Realize your design vision with bespoke customizations to our collection—each piece tailor-made for your project.</p>
         <ShopTheCollectionButton path="#" inquire='INQUIRE'/>

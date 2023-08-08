@@ -2,7 +2,7 @@ import React from 'react'
 
 interface MainPicProps {
     url: string,
-    text?: boolean
+    text?: string
 }
 
 export const MainPic = ({ url, text }:MainPicProps) => {
@@ -18,7 +18,7 @@ export const MainPic = ({ url, text }:MainPicProps) => {
     {text && 
     
     <div className="mainPageText tw-absolute tw-top-64 tw-left-[42%] tw-flex tw-flex-col tw-gap-4">
-      <h2 className='tw-text-5xl'>The Atelier</h2>
+      <h2 className='tw-text-5xl'>{text}</h2>
     </div>}
   </>
   )

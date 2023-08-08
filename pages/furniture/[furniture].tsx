@@ -37,7 +37,20 @@ const shopByFurniture = () => {
 
 
   return (
-    <div>[furniture]</div>
+    <>
+        <Header />
+        <MainPic url='/img/mainPage.jpg' text={`Our ${furniture}s`}/>
+        <div className="products tw-w-screen tw-flex tw-flex-wrap tw-gap-8 tw-justify-center">
+            {productData.map((item) => (
+                <Product url={`/${item.file_location}`} name={item.name} price={item.price} product_id={item.product_id}/>
+            ))}
+        </div>
+        
+    
+    
+    
+    
+    </>
   )
 }
 

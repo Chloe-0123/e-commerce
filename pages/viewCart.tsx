@@ -39,6 +39,12 @@ const ViewCart = () => {
 
     },[cartProducts])
 
+    function handleOrder() {
+
+        
+
+    }
+
     return (
         
       <> 
@@ -52,9 +58,7 @@ const ViewCart = () => {
             {/* head */}
             <thead>
             <tr>
-                <th>
-                
-                </th>
+
                 <th>Product Name</th>
                 <th>Quantity</th>
                 <th>Price</th>
@@ -71,12 +75,11 @@ const ViewCart = () => {
 
         <div className="tw-mt-16">Total: ${total.toFixed(2)}</div>
         <div className="tw-flex tw-justify-center tw-mt-32">
-            <ConfirmButton name="Order All" />
+        <div className={"shopButton"}>
+            <a onClick={handleOrder} className="tw-px-9 tw-py-3 tw-border-solid tw-border-2 tw-border-black tw-rounded-md">Place Order</a>
         </div>
-        <div className="tw-flex tw-justify-center tw-mt-8">
-            <ConfirmButton name="Order Selected" />
         </div>
-    
+      
 
       
       </> : <div>
