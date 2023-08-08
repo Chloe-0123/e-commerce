@@ -101,7 +101,7 @@ export const AddToCart = ({ quantity, productName, productPrice, productId }:Add
     
     
     <div className="shopButton tw-flex-col tw-items-center tw-mt-6 tw-w-full">
-      <a href="#" className="tw-block tw-text-center tw-py-3 tw-border-solid tw-border-[1px] tw-border-black tw-w-full" onClick={handleClicked}>Add to Cart</a>
+      <a className="tw-block tw-text-center tw-py-3 tw-border-solid tw-border-[1px] tw-border-black tw-w-full" onClick={handleClicked}>Add to Cart</a>
 
       {clicked && 
         <div className="tw-alert tw-alert-success tw-mt-4">

@@ -3,10 +3,11 @@ import Header from '@/components/header'
 import { ConfirmButton } from '@/components/Button'
 import { CartItem } from '@/components/CartItem'
 import { CartContext } from '@/components/CartContext'
+import { useSession } from 'next-auth/react';
 
 const ViewCart = () => {
    
-    const {  cartProducts,setCartProducts }= useContext(CartContext)
+    const {  cartProducts, setCartProducts } = useContext(CartContext)
 
 
     const [items, setItems] = useState([])

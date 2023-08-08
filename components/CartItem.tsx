@@ -1,5 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
+import { CartContext } from '@/components/CartContext'
+import { useContext } from 'react'
 
 interface cartItems {
     name: string
@@ -9,6 +11,20 @@ interface cartItems {
 }
 
 export const CartItem = ({ name, quantity, price, id}: cartItems) => {
+
+    const {  cartProducts,setCartProducts }= useContext(CartContext)
+
+    function handleDelete(name:string) {
+        const cartItems = JSON.parse(localStorage.getItem('cart'))
+        const removed = cartItems.filter((item:any) => item.name !== name)
+        const removedtostring = JSON.stringify(removed)
+
+        console.log(removed)
+        localStorage.setItem('cart', removedtostring)
+        setCartProducts(removed)
+    }
+
+
 
   return (
     
@@ -32,11 +48,14 @@ export const CartItem = ({ name, quantity, price, id}: cartItems) => {
             <br/>
             
             </td>
-            <td>${(price*quantity).toFixed(2)}</td>
-            <th>
+            <td>
+                ${(price*quantity).toFixed(2)}
+            </td>
+            <td>
             <Link href={`/product/${id}`} className="tw-btn tw-btn-ghost tw-btn-xs">DETAILS</Link>
-            </th>
-        </tr>
+            </td>
+            <td><a onClick={() => handleDelete(name)} className="tw-btn tw-btn-ghost tw-btn-xs">DELETE</a></td>
+    </tr>
   )
 }
 
