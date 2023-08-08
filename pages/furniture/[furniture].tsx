@@ -45,6 +45,7 @@ const shopByFurniture = () => {
                 <Product url={`/${item.file_location}`} name={item.name} price={item.price} product_id={item.product_id}/>
             ))}
         </div>
+        <Footer />
         
     
     

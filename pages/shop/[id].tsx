@@ -67,14 +67,14 @@ const ShopPage = () => {
             <div className="tw-h-screen">
             <PageIntro title={`The ${id === '1' ? "Living " : "Bed"}Room Collection`} p="Timeless shapes designed with luxe detail, handcrafted to order for unparalleled comfort and longevity."/>
             <div className="cards tw-flex tw-gap-x-12 tw-h-fit tw-justify-center tw-mt-20">
-                {id === '3' ? <><VerticalCard imgSrc='/img/cozyLivingRoom.jpg' imgDesc='Shop Beds'/>
-                <VerticalCard imgSrc='/img/accent.jpg' imgDesc='Shop Nightstands / Dressers'/>
-                <VerticalCard imgSrc='/img/chair.jpg' imgDesc='Shop Chairs'/></> : 
+                {id === '3' ? <><VerticalCard imgSrc='/img/cozyLivingRoom.jpg' imgDesc='Shop Beds' redirect='/furniture/Bed'/>
+                <VerticalCard imgSrc='/img/accent.jpg' imgDesc='Shop Nightstands / Dressers' redirect='/furniture/Dresser'/>
+                <VerticalCard imgSrc='/img/chair.jpg' imgDesc='Shop Chairs' redirect='/furniture/Chair'/></> : 
                 
                 <>
-                    <VerticalCard imgSrc='/img/cozyLivingRoom.jpg' imgDesc='Shop Sofas'/>
-                    <VerticalCard imgSrc='/img/accent.jpg' imgDesc='Shop Tables'/>
-                    <VerticalCard imgSrc='/img/chair.jpg' imgDesc='Shop Chairs'/>
+                    <VerticalCard imgSrc='/img/cozyLivingRoom.jpg' imgDesc='Shop Sofas' redirect='/furniture/Sofa'/>
+                    <VerticalCard imgSrc='/img/accent.jpg' imgDesc='Shop Tables'redirect='/furniture/Table'/>
+                    <VerticalCard imgSrc='/img/chair.jpg' imgDesc='Shop Chairs'redirect='/furniture/Chair'/>
                 </>}
             </div>
             </div>

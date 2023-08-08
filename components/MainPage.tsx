@@ -24,9 +24,9 @@ const MainPage = () => {
           <div className="slide2 tw-h-screen tw-mr-20 tw-ml-20">
             <h2>Design-driven luxury for the modern home—handcrafted to the highest standards by our North Carolina artisans.</h2>
             <div className="cards tw-flex tw-gap-x-6 tw-h-2/5">
-            <Cards imgSrc="/img/chair.jpg" imgName="Living" imgDesc="Timeless shapes designed with unparalleled comfort." href="/living"/>
-            <Cards imgSrc="/img/accent.jpg" imgName="Dining" imgDesc="Timeless shapes designed with unparalleled comfort." href="/dining"/>
-            <Cards imgSrc="/img/bednmug.jpg" imgName="Bedroom" imgDesc="Timeless shapes designed with unparalleled comfort." orientation="bg-bottom" href="/bedroom"/>
+            <Cards imgSrc="/img/chair.jpg" imgName="Living" imgDesc="Timeless shapes designed with unparalleled comfort." href="/shop/1"/>
+            <Cards imgSrc="/img/accent.jpg" imgName="Dining" imgDesc="Timeless shapes designed with unparalleled comfort." href="/shop/2"/>
+            <Cards imgSrc="/img/bednmug.jpg" imgName="Bedroom" imgDesc="Timeless shapes designed with unparalleled comfort." orientation="bg-bottom" href="/shop/3"/>
             </div>
 
             <div className="shopButton tw-m-24 tw-flex tw-justify-center">
