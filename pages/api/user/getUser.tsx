@@ -24,7 +24,7 @@ export default function handler(req: any, res: any) {
             if (results.length === 0) {
               // No user found, insert a new user into the database
               connection.query(
-                `INSERT INTO user (email) VALUES ("${userEmail}")`,
+                `INSERT INTO users (email) VALUES ("${userEmail}")`,
                 (insertError, insertResults) => {
                   if (insertError) {
                     console.error('Error inserting new user:', insertError);
