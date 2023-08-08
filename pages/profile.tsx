@@ -1,12 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Header from '@/components/header';
 import { Settings } from '@/components/Settings';
 import { Orders } from '@/components/Orders';
 import { useSession, signOut, signIn } from 'next-auth/react';
+import { UserContext } from '@/components/UserContext';
 
 const Profile = () => {
 
+
   const {data:session} = useSession()
+  const { user, setUser } = useContext(UserContext)
+
+
   console.log('profile session', session)
   if (session) {
     console.log('logged in!')
@@ -26,6 +31,7 @@ const Profile = () => {
         .then((response) => response.json())
         .then((data) => {
           setUserData(data);
+          setUser(data[0].id)
           setLoading(false); // Set loading to false once data is fetched
         })
         .catch((error) => {
@@ -35,6 +41,9 @@ const Profile = () => {
     }
   }, [session]); 
 
+  console.log(user)
+
+  
   
   function handleOrdersClick() {
     if (orders) {
@@ -52,7 +61,7 @@ const Profile = () => {
     handleSetting(!setting);
   }
 
-  console.log(userData)
+  
 
   return (
     <>

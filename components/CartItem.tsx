@@ -32,7 +32,7 @@ export const CartItem = ({ name, quantity, price, id}: cartItems) => {
 
   return (
     <>
-         {session && <tr>
+         <tr>
             
             <td>
             <div className="tw-flex tw-items-center tw-space-x-3">
@@ -55,7 +55,7 @@ export const CartItem = ({ name, quantity, price, id}: cartItems) => {
             <Link href={`/product/${id}`} className="tw-btn tw-btn-ghost tw-btn-xs">DETAILS</Link>
             </td>
             <td><a onClick={() => handleDelete(name)} className="tw-btn tw-btn-ghost tw-btn-xs">DELETE</a></td>
-    </tr>}
+    </tr>
     
     </>
    

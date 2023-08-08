@@ -1,15 +1,34 @@
 "use client";
 import '../styles/globals.css'
 import Link from 'next/link';
-import React, { useState, createContext, useEffect } from 'react'
+import React, { useState, createContext, useEffect, useContext } from 'react'
 import Navbar from './navbar';
 import { useSession, signIn, signOut } from "next-auth/react"
 import CartIcon from './CartIcon';
+import { UserContext } from '@/components/UserContext';
 
 
 const Header = () => {
     const { data: session } = useSession()
-    const [cartQuantity, setCartQuantity] = useState(0)    
+    const [cartQuantity, setCartQuantity] = useState(0) 
+    const { user, setUser } = useContext(UserContext)
+    
+    useEffect(() => {
+      if (session) {
+        fetch(`api/user/getUser?email=${encodeURIComponent(session.user?.email)}`)
+        .then((response) => response.json())
+        .then((data) => {
+          setUser(data[0].id)
+           // Set loading to false once data is fetched
+        })
+        .catch((error) => {
+          console.error('Error fetching user data:', error);
+          // Set loading to false if there's an error
+        });
+      }
+    },[])
+
+    console.log('header', user)
 
     
   

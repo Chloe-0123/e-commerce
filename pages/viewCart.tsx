@@ -4,16 +4,22 @@ import { ConfirmButton } from '@/components/Button'
 import { CartItem } from '@/components/CartItem'
 import { CartContext } from '@/components/CartContext'
 import { useSession, signIn } from 'next-auth/react';
+import { UserContext } from '@/components/UserContext'
+import { useRouter } from 'next/router'
+
+interface Order {
+    order_id: number
+    customer_id: number
+    total: number
+    products: string
+}
 
 const ViewCart = () => {
    
-
+    const router = useRouter();
     const {data:session} = useSession()
-
- 
-
-
     const {  cartProducts, setCartProducts } = useContext(CartContext)
+    const { user } = useContext(UserContext)
 
 
     const [items, setItems] = useState([])
@@ -39,8 +45,34 @@ const ViewCart = () => {
 
     },[cartProducts])
 
-    function handleOrder() {
+    const handleOrder = async(event:any) => {
+        event.preventDefault();
 
+        try {
+            const orderInfo = {
+                customer_id: user, // Replace with the actual customer ID
+                total: total.toFixed(2),    // Replace with the actual total amount
+                products: items
+            };
+
+            const response = await fetch('api/order/storeOrder', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(orderInfo)
+      
+            })
+            if (!response.ok) {
+              // Handle the case when the server returns an error
+              throw new Error('Network response was not okay');
+            } else {
+                alert('Ordered Successfully. You can check your order in your profile page')
+                router.push('/')
+            }
+          } catch (error) {
+            console.log('Order failed: ', error)
+          }
         
 
     }
