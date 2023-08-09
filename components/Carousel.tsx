@@ -7,6 +7,8 @@ import "swiper/css/thumbs";
 import '../styles/productCarousel.css'
 import { FreeMode, Navigation, Thumbs } from "swiper";
 import Image from 'next/image';
+import SwiperType from 'swiper'
+
 
 interface CarouselProps {
   image_location: string
@@ -16,7 +18,7 @@ interface CarouselProps {
 export const PCarousel = ({ image_location , name }: CarouselProps) => {
 
 
-  const [thumbsSwiper, setThumbsSwiper] = useState<typeof Swiper | null>(null);
+  const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType>();
   const [carouselData, setCarouselData] = useState(null)
 
 
