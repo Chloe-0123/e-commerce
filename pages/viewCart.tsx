@@ -6,6 +6,9 @@ import { CartContext } from '@/components/CartContext'
 import { useSession, signIn } from 'next-auth/react';
 import { UserContext } from '@/components/UserContext'
 import { useRouter } from 'next/router'
+import { Cormorant } from 'next/font/google'
+
+const cormorant = Cormorant({ subsets: ['latin'] })
 
 interface Order {
     order_id: number
@@ -80,7 +83,8 @@ const ViewCart = () => {
     return (
         
       <> 
-       <Header /> 
+      <div className={cormorant.className}>
+      <Header /> 
       {session ? <>
         
        
@@ -117,6 +121,9 @@ const ViewCart = () => {
       </> : <div>
           <p>You are not signed in.</p> <button onClick={() => signIn()}>Sign In</button>
         </div>}
+
+      </div>
+       
         
         </>
     

@@ -4,6 +4,9 @@ import { Settings } from '@/components/Settings';
 import { Orders } from '@/components/Orders';
 import { useSession, signOut, signIn } from 'next-auth/react';
 import { UserContext } from '@/components/UserContext';
+import { Cormorant } from 'next/font/google'
+
+const cormorant = Cormorant({ subsets: ['latin'] })
 
 const Profile = () => {
 
@@ -65,7 +68,8 @@ const Profile = () => {
 
   return (
     <>
-      <Header />
+    <div className={cormorant.className}>
+    <Header />
       {session ? (
         <div className="tw-flex" style={{ height: 'calc(100vh - 106px)' }}>
           <div className="righttab tw-w-[20%] tw-bg-orange-100 tw-h-full tw-flex tw-flex-col tw-justify-center">
@@ -105,6 +109,9 @@ const Profile = () => {
           <p>You are not signed in.</p> <button onClick={() => signIn()}>Sign In</button>
         </div>
       )}
+
+    </div>
+      
     </>
   );
 
