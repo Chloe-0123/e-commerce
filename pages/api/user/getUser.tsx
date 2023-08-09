@@ -1,4 +1,5 @@
 import connection from '../../../config/db';
+import { RowDataPacket } from 'mysql2'; 
 
 // register & get user
 export default function handler(req: any, res: any) {
@@ -21,7 +22,8 @@ export default function handler(req: any, res: any) {
           } 
           
           else {
-            if (results.length === 0) {
+            const userData: RowDataPacket[] = results as RowDataPacket[];
+            if (userData.length === 0) {
               // No user found, insert a new user into the database
               connection.query(
                 `INSERT INTO users (email) VALUES ("${userEmail}")`,

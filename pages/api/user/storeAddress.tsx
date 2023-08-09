@@ -1,5 +1,6 @@
 import connection from '../../../config/db';
 const crypto = require('crypto');
+import { RowDataPacket } from 'mysql2'; 
 
 export default function addressHandler(req: any, res: any) {
   console.log('req', req)
@@ -22,12 +23,13 @@ export default function addressHandler(req: any, res: any) {
           console.error('Error querying user:', error);
           res.status(500).json({ error: 'Error querying user' });
         } else {
-          if (results.length === 0) {
+          const userData: RowDataPacket[] = results as RowDataPacket[];
+          if (userData.length === 0) {
             // If the user does not exist, you may choose to handle it as per your use case.
             // For example, you can return an error response or insert the user into the database.
             res.status(404).json({ error: 'User not found' });
           } else {
-            const userId = results[0].id;
+            const userId = userData[0].id;
             // Now that you have the userId, you can update the address information for that user
             const updateQuery = `
               UPDATE users
