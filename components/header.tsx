@@ -39,17 +39,17 @@ const Header = () => {
         <div className="tw-navbar ">
           <div className="hamburger tw-w-[30%]"></div>
           <div className="shop-title tw-flex-1 tw-justify-center tw-w-[30%]">
-            <a className="tw-normal-case tw-text-xl" href='/'>Modish Moments</a>
+            <a className="tw-normal-case tw-text-[1.5rem] tw-font-bold tw-tracking-widest" href='/'>MODISH COLLECTION</a>
           </div>
           <div className="cart-and-profile tw-flex tw-w-[30%] tw-justify-end tw-flex tw-gap-4">
             {session && <CartIcon />}
             <div className="profile-icon tw-dropdown tw-dropdown-end">
               <label tabIndex={0} className="tw-btn tw-btn-ghost tw-btn-circle tw-avatar">
                 <div className="tw-w-10 tw-rounded-full">
-                  <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                  <img src="/img/bednmug.jpg" />
                 </div>
               </label>
-              <ul tabIndex={0} className="tw-menu tw-menu-compact tw-dropdown-content tw-mt-3 tw-p-2 tw-shadow tw-bg-base-100 tw-rounded-box w-52">
+              <ul tabIndex={0} className="tw-menu tw-menu-compact tw-dropdown-content tw-mt-3 tw-p-2 tw-shadow tw-bg-base-100 tw-rounded-box tw-w-52 tw-text-[1.1rem]">
                 <li>
                   <Link href="/profile">Profile</Link>
                 </li>
