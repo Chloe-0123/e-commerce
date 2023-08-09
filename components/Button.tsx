@@ -57,7 +57,7 @@ interface AddToCartProps {
 
 }
 export const AddToCart = ({ quantity, productName, productPrice, productId }:AddToCartProps) => {
- const {  cartProducts,setCartProducts }= useContext(CartContext)
+ const { cartProducts, setCartProducts }= useContext(CartContext)
  const {data:session} = useSession()
 
 
@@ -68,14 +68,24 @@ export const AddToCart = ({ quantity, productName, productPrice, productId }:Add
     if (session && session.user ) {
 
       setClicked(true)
-    //check for existing cart
+    
     
     //const existingCart = JSON.parse(localStorage.getItem('cart')) || [];
-    const existingCart = JSON.parse(localStorage.getItem(session.user.email)) || [];
+
+    const existingCartString = session?.user?.email ? localStorage.getItem(session.user.email) : null;
+
+    let existingCart
+    if (existingCartString) {
+        existingCart = JSON.parse(existingCartString);
+      
+    } else {
+      existingCart = []
+    }
+    
     console.log('existing cart' , existingCart)
 
     // Check if the item is already in the cart based on its unique identifier (e.g., product ID)
-    const itemIndex = existingCart.findIndex((cartItem) => cartItem.name === productName)
+    const itemIndex = existingCart.findIndex((cartItem:any) => cartItem.name === productName)
 
     if(itemIndex === -1){
       existingCart.push({name:productName, number:quantity, price:productPrice, id:productId})
@@ -84,7 +94,7 @@ export const AddToCart = ({ quantity, productName, productPrice, productId }:Add
     }
 
     const cartToString = JSON.stringify(existingCart)
-    localStorage.setItem(session.user.email, cartToString)
+    localStorage.setItem(session?.user?.email ?  session.user.email : '', cartToString)
     const event = new Event('one item added')
     document.dispatchEvent(event)
 
@@ -158,7 +168,7 @@ export const LoginButton = () => {
   if (session) {
     return (
       <>
-        Signed in as {session.user.email} <br />
+        Signed in as {session.user && session.user.email} <br />
         <button className="tw-px-9 tw-py-3 tw-border-solid tw-border-2 tw-border-black tw-rounded-md" onClick={() => signOut()}>Sign out</button>
       </>
     );

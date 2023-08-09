@@ -16,14 +16,21 @@ export default function AddressForm() {
 
   const {data:session} = useSession()
 
-  const [address, setAddress] = useState<Address>({
+  const initialAddress: Address = {
     streetNumber: '',
     streetName: '',
     city: '',
     state: '',
     ZIP: '',
-    email: session.user.email,
-  });
+    email: null,
+  };
+
+  if (session?.user?.email) {
+    initialAddress.email = session.user.email;
+  }
+
+  const [address, setAddress] = useState<Address>(initialAddress);
+
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;

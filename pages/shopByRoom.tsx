@@ -7,10 +7,16 @@ import Footer from '@/components/Footer';
 import { MainPic } from '@/components/MainPic';
 import Image from 'next/image';
 
+interface Product {
+  product_id: number;
+  category_id: number;
+  file_location: string;
+  // Add other properties here
+}
 
 const ShopByRoomPage: React.FC = () => {
 
-  const [carouselData, setCarouselData] = useState(null)
+  const [carouselData, setCarouselData] = useState<Product[] | null>(null);
   let livingProducts
   let diningProducts
   let bedroomProducts
@@ -18,13 +24,13 @@ const ShopByRoomPage: React.FC = () => {
   useEffect(() => {
     fetch('api/product/getProducts')
       .then((response) => response.json())
-      .then((data) => {
-        setCarouselData(data)
+      .then((data: Product[]) => {
+        setCarouselData(data);
       })
       .catch((error) => {
         console.error('Error fetching product data:', error);
-      })
-  }, [])
+      });
+  }, []);
 
   console.log('carouselData: ',carouselData)
   if (carouselData) {
@@ -70,7 +76,7 @@ const ShopByRoomPage: React.FC = () => {
           reloadOnUpdate
           static
         > 
-        {livingProducts.map((product:any) => (
+        {livingProducts && livingProducts.map((product:any) => (
           <a key={product.product_id} href={`/product/${product.product_id}`} className='carousel-cell'>
           <div className="tw-h-[300px]">
           <Image src={`/${product.file_location}`} alt={`Product ${product.name}`} width={500} height={300}></Image>
@@ -79,7 +85,7 @@ const ShopByRoomPage: React.FC = () => {
         ))}
         </Flickity>
         
-        <ShopTheCollectionButton path="/living"/>
+        <ShopTheCollectionButton path="/shop/1"/>
       </div>
       
       <div className="dini  ngroomtitle">
@@ -94,7 +100,7 @@ const ShopByRoomPage: React.FC = () => {
           reloadOnUpdate
           static
         >
-        {diningProducts.map((product:any) => (
+        {diningProducts && diningProducts.map((product:any) => (
           <a key={product.product_id} href={`/product/${product.product_id}`} className='carousel-cell'>
           <div className="tw-h-[300px]">
           <Image src={`/${product.file_location}`} alt={`Product ${product.name}`} width={500} height={300}></Image>
@@ -103,7 +109,7 @@ const ShopByRoomPage: React.FC = () => {
         ))}
         </Flickity>
           
-        <ShopTheCollectionButton path="/dining"/>
+        <ShopTheCollectionButton path="/shop/2"/>
       </div>
       
       <div className="bedroomtitle">
@@ -118,7 +124,7 @@ const ShopByRoomPage: React.FC = () => {
           reloadOnUpdate
           static
         >
-        {bedroomProducts.map((product:any) => (
+        {bedroomProducts && bedroomProducts.map((product:any) => (
           <a key={product.product_id} href={`/product/${product.product_id}`} className='carousel-cell'>
           <div className="tw-h-[300px] tw-w-[500px]">
           <Image src={`/${product.file_location}`} alt={`Product ${product.name}`} width={500} height={500 * (9/16)} style={{ objectFit: "cover" }}></Image>
@@ -127,7 +133,7 @@ const ShopByRoomPage: React.FC = () => {
         ))}
         </Flickity>
           
-        <ShopTheCollectionButton path="/bedroom"/>
+        <ShopTheCollectionButton path="/shop/3"/>
       </div></>}
       <Footer />
     </>

@@ -1,14 +1,21 @@
-import { createContext, useState } from "react";
+import React, { createContext, useState, ReactNode, SetStateAction, Dispatch } from "react";
 
-export const CartContext = createContext({})
+interface CartProduct {
+    cartProducts: object[];
+    setCartProducts: Dispatch<SetStateAction<object[]>>;
+}
 
+export const CartContext = createContext<CartProduct>({
+    cartProducts: [],
+    setCartProducts: () => {}
+});
 
-export function CartContextProvider({children}:any) {
-    const [cartProducts, setCartProducts] = useState([])
+export function CartContextProvider({ children }: { children: ReactNode }) {
+    const [cartProducts, setCartProducts] = useState<object[]>([]);
 
     return (
-        <CartContext.Provider value={{cartProducts, setCartProducts}}>
+        <CartContext.Provider value={{ cartProducts, setCartProducts }}>
             {children}
         </CartContext.Provider>
-    )
+    );
 }
