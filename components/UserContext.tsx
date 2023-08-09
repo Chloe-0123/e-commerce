@@ -1,9 +1,14 @@
-import { createContext, useState } from "react";
+import { createContext, useState, ReactNode } from "react";
 
-export const UserContext = createContext({})
+interface User {
+    user: number
+    setUser: React.Dispatch<React.SetStateAction<number>>;
+}
+
+export const UserContext = createContext<User>({ user: 0 , setUser:() => {}})
 
 
-export function UserContextProvider({children}:any) {
+export function UserContextProvider({children}:{ children: ReactNode }) {
     const [user, setUser] = useState(0)
 
     return (

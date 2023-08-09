@@ -2,7 +2,11 @@
 import { UserContext } from './UserContext'
 import { useContext, useState, useEffect } from 'react'
 
-
+interface Item {
+  order_id:string
+  products:string
+  total:string
+}
 
 export const Orders = () => {
 
@@ -47,7 +51,7 @@ console.log(orders)
       </tr>
     </thead>
     <tbody>
-      {orders.map((item) => (
+      {orders.map((item: Item) => (
         <>
         <tr>
         <th>-</th>

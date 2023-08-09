@@ -18,13 +18,15 @@ export const CartItem = ({ name, quantity, price, id}: cartItems) => {
     //console.log(session)
 
     function handleDelete(name:string) {
-        const cartItems = JSON.parse(localStorage.getItem(session?.user.email))
+        /*const cartItems = JSON.parse(localStorage.getItem(session?.user?.email))*/
+        const existingCartString = session?.user?.email ? localStorage.getItem(session.user.email) : null;
+        const cartItems = existingCartString && JSON.parse(existingCartString)
         console.log(cartItems)
         const removed = cartItems.filter((item:any) => item.name !== name)
         const removedtostring = JSON.stringify(removed)
 
         console.log(removed)
-        localStorage.setItem(session?.user.email, removedtostring)
+        localStorage.setItem(session?.user?.email ? session?.user.email: '', removedtostring)
         setCartProducts(removed)
     }
 

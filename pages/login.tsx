@@ -38,7 +38,7 @@ export default function Login() {
       redirect: false, // Disable automatic redirect
     });
 
-    if (result.error) {
+    if (result && result.error) {
       // Handle login error
       console.error('login page Error logging in:', result.error);
     } else {

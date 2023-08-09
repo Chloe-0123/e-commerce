@@ -18,6 +18,13 @@ interface Order {
     products: string
 }
 
+interface Item {
+  name: string
+  number: number
+  price: number
+  id: number
+}
+
 const ViewCart = () => {
    
     const router = useRouter();
@@ -31,14 +38,25 @@ const ViewCart = () => {
 
 
     useEffect (() => {
-        if (session && session.user.email) {
+        if (session && session.user && session.user.email) {
 
-            const cartItems = JSON.parse(localStorage.getItem(session.user?.email)) || [];
+            /*const cartItems = JSON.parse(localStorage.getItem(session.user?.email)) || [];*/
+
+            const existingCartString = session?.user?.email ? localStorage.getItem(session.user.email) : null;
+
+            let cartItems
+            if (existingCartString) {
+                cartItems = JSON.parse(existingCartString);
+            
+            } else {
+            cartItems = []
+            }
+
             setItems(cartItems)
             console.log('c', setItems)
     
-            const mapped = cartItems.map((item) => (Number(item.price) * item.number))
-            const totalprice = mapped.reduce((a,c) => a + c, 0)
+            const mapped = cartItems.map((item:any) => (Number(item.price) * item.number))
+            const totalprice = mapped.reduce((a:any,c:any) => a + c, 0)
     
             setTotal(totalprice)
 
@@ -103,7 +121,7 @@ const ViewCart = () => {
             </tr>
             </thead>
             <tbody>
-                {items.map((item) => <CartItem name={item.name} quantity={item.number} price={item.price} id={item.id}/>)}
+                {items.map((item:Item) => <CartItem name={item.name} quantity={item.number} price={item.price} id={item.id}/>)}
             </tbody>
 
             

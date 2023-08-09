@@ -51,7 +51,8 @@ export const Settings = ({name, email, streetNumber, streetName, city, ZIP, stat
         signOut()
 
         try {
-            const response = await fetch(`api/user/deleteUser?email=${encodeURIComponent(session?.user?.email)}`)
+            if (session && session.user && session.user.email) {
+                const response = await fetch(`api/user/deleteUser?email=${encodeURIComponent(session?.user?.email)}`)
 
             if (!response.ok) {
                 throw new Error('Network response was not okay')
@@ -59,6 +60,9 @@ export const Settings = ({name, email, streetNumber, streetName, city, ZIP, stat
                 alert("Account Deleted")
                 router.push('/');
             }
+
+            }
+            
 
         } catch(err) {
             console.log('failed to delete user',err)

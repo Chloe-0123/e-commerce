@@ -17,10 +17,19 @@ const CartIcon = ({ name }: cartQuantity) => {
    
 
     useEffect(() => {
-        if (session && session.user.email) {
+        if (session && session.user && session.user.email) {
 
             console.log(session)
-            const existingCart = JSON.parse(localStorage.getItem(session?.user.email)) || [];
+            const existingCartString = session?.user?.email ? localStorage.getItem(session.user.email) : null;
+
+            let existingCart
+            if (existingCartString) {
+                existingCart = JSON.parse(existingCartString);
+            
+            } else {
+            existingCart = []
+            }
+
             console.log('yaefji', existingCart)
             setCartNumber(existingCart.length)
             let price = 0; 
@@ -52,7 +61,7 @@ const CartIcon = ({ name }: cartQuantity) => {
         </label>
         <div tabIndex={0} className="cart-content tw-mt-3 tw-card tw-card-compact tw-dropdown-content tw-w-52 tw-bg-base-100 tw-shadow tw-z-10">
             <div className="tw-card-body">
-                <span className="tw-font-bold tw-text-lg">{cartNumber} Items</span>
+                <span className="tw-font-bold tw-text-lg">{cartNumber} Item(s)</span>
                 {/*<span className="tw-text-info">Total: ${total}</span>*/}
                 <div className="tw-card-actions">
                 <Link href='/viewCart'><button className="tw-btn tw-btn-primary tw-btn-block">View cart</button></Link>

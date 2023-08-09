@@ -14,8 +14,8 @@ const Header = () => {
     const { user, setUser } = useContext(UserContext)
     
     useEffect(() => {
-      if (session) {
-        fetch(`api/user/getUser?email=${encodeURIComponent(session.user?.email)}`)
+      if (session && session.user && session.user.email) {
+        fetch(`api/user/getUser?email=${encodeURIComponent(session.user.email)}`)
         .then((response) => response.json())
         .then((data) => {
           setUser(data[0].id)
@@ -39,7 +39,7 @@ const Header = () => {
         <div className="tw-navbar ">
           <div className="hamburger tw-w-[30%]"></div>
           <div className="shop-title tw-flex-1 tw-justify-center tw-w-[30%]">
-            <a className="tw-normal-case tw-text-[1.5rem] tw-font-bold tw-tracking-widest" href='/'>MODISH COLLECTION</a>
+            <Link className="tw-normal-case tw-text-[1.5rem] tw-font-bold tw-tracking-widest" href='/'>MODISH COLLECTION</Link>
           </div>
           <div className="cart-and-profile tw-flex tw-w-[30%] tw-justify-end tw-flex tw-gap-4">
             {session && <CartIcon />}

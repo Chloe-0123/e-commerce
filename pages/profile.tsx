@@ -5,6 +5,18 @@ import { Orders } from '@/components/Orders';
 import { useSession, signOut, signIn } from 'next-auth/react';
 import { UserContext } from '@/components/UserContext';
 import { Cormorant } from 'next/font/google'
+import { User } from 'next-auth';
+
+interface UserData {
+  id:number
+  email: string,
+  streetNumber: string | null,
+  streetName: string | null,
+  city: string | null,
+  ZIP: string | null,
+  state: string | null,
+  phoneNumber: string | null,
+}
 
 const cormorant = Cormorant({ subsets: ['latin'] })
 
@@ -21,7 +33,7 @@ const Profile = () => {
   }
   const [setting, handleSetting] = useState(true);
   const [orders, handleOrders] = useState(false);
-  const [userData, setUserData] = useState(null);
+  const [userData, setUserData] = useState<UserData | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -31,20 +43,22 @@ const Profile = () => {
 
       //fetch user using the getUser function in api file
       fetch(`api/user/getUser?email=${encodeURIComponent(userEmail)}`)
-        .then((response) => response.json())
-        .then((data) => {
-          setUserData(data);
-          setUser(data[0].id)
-          setLoading(false); // Set loading to false once data is fetched
-        })
-        .catch((error) => {
-          console.error('Error fetching user data:', error);
-          setLoading(false); // Set loading to false if there's an error
-        });
+      .then((response) => response.json())
+      .then((data: UserData[]) => {
+        if (data.length > 0) { // Check if the array is not empty
+          setUserData(data[0]); // Update userData with the first element
+          setUser(data[0].id);
+        }
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error fetching user data:', error);
+        setLoading(false);
+      });
     }
   }, [session]); 
 
-  console.log(user)
+  console.log(userData)
 
   
   
@@ -87,17 +101,17 @@ const Profile = () => {
             </ul>
           </div>
           <div className="leftpage tw-w-[80%] tw-h-full">
-            {setting && !loading ? ( // Check for the loading state here
+            {setting && !loading && userData ? ( // Check for the loading state here
               <Settings
-                email={`${userData[0].email}`}
+                email={`${userData.email}`}
                 name="blah"
-                streetName={`${userData[0].streetName}`}
-                streetNumber={`${userData[0].streetNumber}`}
-                phoneNumber={`${userData[0].phoneNumber}`}
-                city={`${userData[0].city}`}
-                state={`${userData[0].state}`}
-                ZIP={`${userData[0].ZIP}`}
-                addressAvailable={userData[0].streetName ? true : false}
+                streetName={`${userData.streetName}`}
+                streetNumber={`${userData.streetNumber}`}
+                phoneNumber={`${userData.phoneNumber}`}
+                city={`${userData.city}`}
+                state={`${userData.state}`}
+                ZIP={`${userData.ZIP}`}
+                addressAvailable={userData.streetName ? true : false}
               />
             ) : (
               <Orders />
