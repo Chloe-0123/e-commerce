@@ -37,3 +37,19 @@ next-env.d.ts
 /config/db.js
 
 /pages/auth/[...nextauth].js
+
+.env
+
+.eslintrc.json
+
+package.json
+
+package-lock.json
+
+postcss.config.js
+
+tailwind.config.js
+
+tsconfig.json
+
+next.config.js
