@@ -16,7 +16,7 @@ interface CarouselProps {
 export const PCarousel = ({ image_location , name }: CarouselProps) => {
 
 
-  const [thumbsSwiper, setThumbsSwiper] = useState(null)
+  const [thumbsSwiper, setThumbsSwiper] = useState<typeof Swiper | null>(null);
   const [carouselData, setCarouselData] = useState(null)
 
 
