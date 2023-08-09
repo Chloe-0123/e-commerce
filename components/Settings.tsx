@@ -78,8 +78,8 @@ export const Settings = ({name, email, streetNumber, streetName, city, ZIP, stat
         <div className="email tw-mb-8">
             <h5 className='tw-text-[1.5rem] tw-mb-4'>Email Address</h5>
             <div className="tw-flex tw-gap-16">
-                <p>Your email is <span className='tw-font-bold'>{email}</span></p>
-                <a href="#" onClick={() => handleEmailChange(!emailChange)}>Change</a>
+                <p className='tw-text-[1.3rem]'>Your email is <span className='tw-font-bold'>{email}</span></p>
+                {/*<a href="#" onClick={() => handleEmailChange(!emailChange)}>Change</a>*/}
             </div>
             { emailChange && <>
                 <div className="tw-mb-8"></div>
@@ -90,13 +90,13 @@ export const Settings = ({name, email, streetNumber, streetName, city, ZIP, stat
         </div>
         
 
-        <Bar />
+        {/*<Bar />
         
         <div className="password tw-my-8">
-            <div className="tw-flex tw-gap-16">
+            {<div className="tw-flex tw-gap-16">
                 <h5 className='tw-text-[1.5rem]'>Password</h5>
                 <a href="#" onClick={() => handlePasswordChange(!passwordChange)} className='tw-block tw-flex tw-items-center'>Change</a>
-            </div>
+            </div>}
             { passwordChange && <> 
             <div className="tw-mb-8"></div>
             <div className="tw-flex">
@@ -104,15 +104,15 @@ export const Settings = ({name, email, streetNumber, streetName, city, ZIP, stat
                 <Textbox3 name='newPasswordConfirm' />
             </div>
             <ConfirmButton name="Save"/></>}
-        </div>
+            </div>*/}
 
         <Bar />
 
         <div className="address tw-my-8">
             <h5 className='tw-text-[1.5rem] tw-mb-4'>Delivery Address</h5>
             <div className="tw-flex tw-gap-16">
-                <p>Your delivery address: <span className='tw-font-bold'>{ addressAvailable ? `${streetNumber} ${streetName}, ${city}, ${state} ${ZIP}` : "We do not have your address yet"}</span>.</p>
-                <a href="#" onClick={() => handleAddressChange(!addressChange)}>Change or Add</a>
+                <p className='tw-text-[1.3rem]'>Your delivery address: <span className='tw-font-bold'>{ addressAvailable ? `${streetNumber} ${streetName}, ${city}, ${state} ${ZIP}` : "We do not have your address yet"}</span>.</p>
+                <a href="#" onClick={() => handleAddressChange(!addressChange)} className='tw-text-[1.3rem]'>Change or Add</a>
             </div>
 
             {addressChange && <>

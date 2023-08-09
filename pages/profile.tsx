@@ -68,15 +68,15 @@ const Profile = () => {
       <Header />
       {session ? (
         <div className="tw-flex" style={{ height: 'calc(100vh - 106px)' }}>
-          <div className="righttab tw-w-[20%] tw-bg-slate-200 tw-h-full">
-            <ul>
+          <div className="righttab tw-w-[20%] tw-bg-orange-100 tw-h-full tw-flex tw-flex-col tw-justify-center">
+            <ul className='tw-h-[300px] tw-flex tw-flex-col tw-gap-4 tw-ml-4'>
               <li>
-                <a href="#" onClick={handleSettingsClick}>
+                <a href="#" onClick={handleSettingsClick} className='tw-text-[1.5rem] tw-font-bold'>
                   Account Settings
                 </a>
               </li>
               <li>
-                <a href="#" onClick={handleOrdersClick}>
+                <a href="#" onClick={handleOrdersClick} className='tw-text-[1.5rem] tw-font-bold'>
                   Orders
                 </a>
               </li>

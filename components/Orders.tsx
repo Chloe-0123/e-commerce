@@ -40,9 +40,9 @@ console.log(orders)
     <thead>
       <tr>
         <th></th>
-        <th>Order Number</th>
-        <th>Product(s)</th>
-        <th>Total</th>
+        <th className='tw-text-[1.3rem]'>Order Number</th>
+        <th className='tw-text-[1.3rem]'>Product(s)</th>
+        <th className='tw-text-[1.3rem]'>Total</th>
       </tr>
     </thead>
     <tbody>
@@ -50,12 +50,12 @@ console.log(orders)
         <>
         <tr>
         <th>-</th>
-        <td>{item.order_id}</td>
-        <td>{JSON.parse(item.products).map((product) => (
+        <td className='tw-text-[1.2rem]'>{item.order_id}</td>
+        <td className='tw-text-[1.2rem]'>{JSON.parse(item.products).map((product) => (
           <span> {product.name} /</span>
         ))}
           </td>
-        <td>{item.total}</td>
+        <td className='tw-text-[1.2rem]'>{item.total}</td>
       </tr>
         </>
       ))}
