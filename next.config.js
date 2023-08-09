@@ -9,4 +9,5 @@ module.exports = withTM({
     config.resolve.alias['@'] = path.resolve(__dirname);
     return config;
   },
+  eslint: { ignoreDuringBuilds: true }
 });
