@@ -11,7 +11,7 @@ const MainPage = () => {
           <div className="slide1">
 
             <Link href='/shopByRoom' className="mainPic tw-block tw-h-screen"  style={{
-              backgroundImage: "url('img/mainPage.jpg')",
+              backgroundImage: "url('img/table-lamp.jpg')",
               backgroundSize: 'cover',
             }}></Link>
             <div className="mainPageText tw-absolute tw-top-64 tw-left-16 tw-flex tw-flex-col tw-gap-4">
@@ -21,7 +21,7 @@ const MainPage = () => {
         </div>
 
 
-          <div className="slide2 tw-h-screen tw-mr-20 tw-ml-20">
+          <div className="slide2 tw-h-screen tw-mr-20 tw-ml-20 tw-mt-8">
             <h2>Design-driven luxury for the modern home—handcrafted to the highest standards by our North Carolina artisans.</h2>
             <div className="cards tw-flex tw-gap-x-6 tw-h-2/5">
             <Cards imgSrc="/img/chair.jpg" imgName="Living" imgDesc="Timeless shapes designed with unparalleled comfort." href="/shop/1"/>
