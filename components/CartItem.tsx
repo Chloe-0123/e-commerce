@@ -38,7 +38,7 @@ export const CartItem = ({ name, quantity, price, id}: cartItems) => {
             <div className="tw-flex tw-items-center tw-space-x-3">
 
                 <div>
-                <div className="tw-font-bold">{name}</div>
+                <div className="tw-font-bold tw-text-[1.3rem]">{name}</div>
                 <div className="tw-text-sm tw-opacity-50">{}</div>
                 </div>
             </div>
@@ -48,13 +48,13 @@ export const CartItem = ({ name, quantity, price, id}: cartItems) => {
             <br/>
             
             </td>
-            <td>
+            <td className='tw-text-[1.3rem]'>
                 ${(price*quantity).toFixed(2)}
             </td>
             <td>
-            <Link href={`/product/${id}`} className="tw-btn tw-btn-ghost tw-btn-xs">DETAILS</Link>
+            <Link href={`/product/${id}`} className="tw-btn tw-btn-ghost tw-btn-xs tw-text-[1.1rem]">DETAILS</Link>
             </td>
-            <td><a onClick={() => handleDelete(name)} className="tw-btn tw-btn-ghost tw-btn-xs">DELETE</a></td>
+            <td><a onClick={() => handleDelete(name)} className="tw-btn tw-btn-ghost tw-btn-xs tw-text-[1.1rem]">DELETE</a></td>
     </tr>
     
     </>

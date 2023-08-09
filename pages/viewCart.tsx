@@ -84,16 +84,16 @@ const ViewCart = () => {
       {session ? <>
         
        
-        <h1 className='tw-mt-16 tw-mb-16'>Shopping Cart</h1>
+        <h1 className='tw-mt-16 tw-mb-16 tw-text-[2.5rem] tw-text-center'>Shopping Cart</h1>
         <div className="tw-overflow-x-auto tw-w-full">
         <table className="tw-table w-full tw-bg-amber-100">
             {/* head */}
             <thead>
             <tr>
 
-                <th>Product Name</th>
-                <th>Quantity</th>
-                <th>Price</th>
+                <th className='tw-text-[1.5rem]'>Product Name</th>
+                <th className='tw-text-[1.5rem]'>Quantity</th>
+                <th className='tw-text-[1.5rem]'>Price</th>
                 <th></th>
             </tr>
             </thead>
@@ -105,7 +105,7 @@ const ViewCart = () => {
         </table>
         </div>
 
-        <div className="tw-mt-16">Total: ${total.toFixed(2)}</div>
+        <h1 className="tw-mt-16 tw-text-[1.5rem] tw-text-center">Total: ${total.toFixed(2)}</h1>
         <div className="tw-flex tw-justify-center tw-mt-32">
         <div className={"shopButton"}>
             <a onClick={handleOrder} className="tw-px-9 tw-py-3 tw-border-solid tw-border-2 tw-border-black tw-rounded-md">Place Order</a>
