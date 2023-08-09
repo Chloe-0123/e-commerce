@@ -70,7 +70,7 @@ const ShopByRoomPage: React.FC = () => {
           reloadOnUpdate
           static
         > 
-        {livingProducts.map((product) => (
+        {livingProducts.map((product:any) => (
           <a key={product.product_id} href={`/product/${product.product_id}`} className='carousel-cell'>
           <div className="tw-h-[300px]">
           <Image src={`/${product.file_location}`} alt={`Product ${product.name}`} width={500} height={300}></Image>
@@ -94,7 +94,7 @@ const ShopByRoomPage: React.FC = () => {
           reloadOnUpdate
           static
         >
-        {diningProducts.map((product) => (
+        {diningProducts.map((product:any) => (
           <a key={product.product_id} href={`/product/${product.product_id}`} className='carousel-cell'>
           <div className="tw-h-[300px]">
           <Image src={`/${product.file_location}`} alt={`Product ${product.name}`} width={500} height={300}></Image>
@@ -118,7 +118,7 @@ const ShopByRoomPage: React.FC = () => {
           reloadOnUpdate
           static
         >
-        {bedroomProducts.map((product) => (
+        {bedroomProducts.map((product:any) => (
           <a key={product.product_id} href={`/product/${product.product_id}`} className='carousel-cell'>
           <div className="tw-h-[300px] tw-w-[500px]">
           <Image src={`/${product.file_location}`} alt={`Product ${product.name}`} width={500} height={500 * (9/16)} style={{ objectFit: "cover" }}></Image>

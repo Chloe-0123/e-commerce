@@ -3,7 +3,7 @@ import { useSession, signIn, signOut } from 'next-auth/react'
 import Header from '@/components/header'
 import { useRouter } from 'next/router';
 
-const auth = () => {
+const Auth = () => {
 
   const {data: session, status} = useSession()
   const router = useRouter();
@@ -37,4 +37,4 @@ const auth = () => {
 
 }
 
-export default auth
+export default Auth

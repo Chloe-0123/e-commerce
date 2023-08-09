@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { DropdownMenu } from './DropdownMenu';
+import Link from 'next/link';
 
 const Navbar = () => {
   const [isLivingOpen, setIsLivingOpen] = useState(false);
@@ -49,7 +50,7 @@ const Navbar = () => {
           onMouseEnter={handleLivingEnter}
           onMouseLeave={handleLivingLeave}
         >
-          <a href='/shop/1' className="tw-block tw-hover:bg-gray-300 tw-py-2 tw-px-4 tw-rounded tw-text-[1rem]"> LIVING </a>
+          <Link href='/shop/1' className="tw-block tw-hover:bg-gray-300 tw-py-2 tw-px-4 tw-rounded tw-text-[1rem]"> LIVING </Link>
           {isLivingOpen && (
             <div
               className="livingDropdown"
@@ -68,7 +69,7 @@ const Navbar = () => {
           onMouseEnter={handleDiningEnter}
           onMouseLeave={handleDiningLeave}
         >
-          <a href='/shop/2' className="tw-block tw-hover:bg-gray-300 tw-py-2 tw-px-4 tw-rounded tw-text-[1rem]"> DINING </a>
+          <Link href='/shop/2' className="tw-block tw-hover:bg-gray-300 tw-py-2 tw-px-4 tw-rounded tw-text-[1rem]"> DINING </Link>
           {isDiningOpen && (
             <div
               className="diningDropdown"
@@ -87,7 +88,7 @@ const Navbar = () => {
           onMouseEnter={handleBedroomEnter}
           onMouseLeave={handleBedroomLeave}
         >
-          <a href='/shop/3' className="tw-block  tw-hover:bg-gray-300 tw-py-2 tw-px-4 tw-rounded tw-text-[1rem]"> BEDROOM </a>
+          <Link href='/shop/3' className="tw-block  tw-hover:bg-gray-300 tw-py-2 tw-px-4 tw-rounded tw-text-[1rem]"> BEDROOM </Link>
           {isBedroomOpen && (
             <div
               className="bedroomDropdown"
@@ -106,7 +107,7 @@ const Navbar = () => {
           onMouseEnter={handleServicesEnter}
           onMouseLeave={handleServicesLeave}
         >
-          <a href='/services' className="tw-block tw-hover:bg-gray-300 tw-py-2 tw-px-4 tw-rounded tw-text-[1rem]">OUR SERVICES</a>
+          <Link href='/services' className="tw-block tw-hover:bg-gray-300 tw-py-2 tw-px-4 tw-rounded tw-text-[1rem]">OUR SERVICES</Link>
           {isServicesOpen && (
             <div
               className="servicesDropdown"

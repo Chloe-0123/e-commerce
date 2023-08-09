@@ -6,8 +6,8 @@ import { QuantityAdd } from './Button'
 interface ProductProps {
   url: string,
   name: string,
-  price: number
-  product_id: string
+  price: string
+  product_id: number
 }
 
 export const Product = ({ url, name, price, product_id }:ProductProps) => {

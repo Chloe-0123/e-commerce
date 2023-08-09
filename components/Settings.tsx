@@ -131,7 +131,7 @@ export const Settings = ({name, email, streetNumber, streetName, city, ZIP, stat
             <p>Deleting your account will remove all the content associated with it.</p>
             
             <div className="tw-mb-4"></div>
-            <button href="#" className='tw-text-orange-600' onClick={handleDelete}>I want to delete my account</button>
+            <button className='tw-text-orange-600' onClick={handleDelete}>I want to delete my account</button>
         </div>
 
     </div>

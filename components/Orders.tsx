@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import { UserContext } from './UserContext'
 import { useContext, useState, useEffect } from 'react'
 
@@ -51,7 +52,7 @@ console.log(orders)
         <tr>
         <th>-</th>
         <td className='tw-text-[1.2rem]'>{item.order_id}</td>
-        <td className='tw-text-[1.2rem]'>{JSON.parse(item.products).map((product) => (
+        <td className='tw-text-[1.2rem]'>{JSON.parse(item.products).map((product:any) => (
           <span> {product.name} /</span>
         ))}
           </td>
