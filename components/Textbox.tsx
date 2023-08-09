@@ -14,8 +14,8 @@ type formType= {
 export const Textbox = ({ name }:formType) => {
   return (
     <div className="tw-w-full tw-mb-16">
-    <p className="tw-pb-2">{name}</p>
-    <input type="text" className="tw-input tw-input-bordered tw-w-full" name = {name} />
+    <p className="tw-pb-2 tw-text-[1.3rem]">{name}</p>
+    <input type="text" className="tw-input tw-input-bordered tw-w-full tw-text-[1.3rem]" name = {name} />
 </div>
   )
 }

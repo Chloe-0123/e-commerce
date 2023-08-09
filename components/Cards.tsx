@@ -20,7 +20,7 @@ export const Cards = (props: CardProps) => {
             {props.imgName}
           </h5>
         </div>
-        <div className="desc">
+        <div className="desc tw-mt-5 tw-text-[1.2rem]">
           <p className="tw-px-9 tw-text-center">{props.imgDesc}</p>
         </div>
       </a>

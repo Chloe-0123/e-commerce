@@ -3,6 +3,10 @@ import { useEffect, useState } from 'react';
 import { PCarousel } from '@/components/Carousel';
 import Header from '@/components/header';
 import { ProductDesc } from '@/components/Product';
+import { Cormorant } from 'next/font/google'
+import Footer from '@/components/Footer';
+
+const cormorant = Cormorant({ subsets: ['latin'] })
 
 interface ProductData {
   product_id: number;
@@ -36,7 +40,8 @@ const ProductPage = () => {
 
   return (
     <>
-      <Header />
+     <div className={cormorant.className}>
+     <Header />
       <div className='tw-flex tw-mt-8'>
         <div className="swipers">
           {productData.length > 0 && <PCarousel image_location={productData[0].file_location} name={productData[0].name}/>}
@@ -51,6 +56,9 @@ const ProductPage = () => {
           />
         )}
       </div>
+      <Footer />
+     </div>
+      
     </>
   );
 };

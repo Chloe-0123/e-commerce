@@ -21,16 +21,16 @@ const MainPage = () => {
         </div>
 
 
-          <div className="slide2 tw-h-screen tw-mr-20 tw-ml-20 tw-mt-8">
-            <h2>Design-driven luxury for the modern home—handcrafted to the highest standards by our North Carolina artisans.</h2>
+          <div className="slide2 tw-h-[700px] tw-mr-20 tw-ml-20 tw-mt-14">
+            <h2 className="tw-text-[1.5rem] tw-text-center tw-mb-14">Crafted by skilled artisans, our design-centric luxury pieces elevate the modern home with unparalleled quality.</h2>
             <div className="cards tw-flex tw-gap-x-6 tw-h-2/5">
             <Cards imgSrc="/img/chair.jpg" imgName="Living" imgDesc="Timeless shapes designed with unparalleled comfort." href="/shop/1"/>
             <Cards imgSrc="/img/accent.jpg" imgName="Dining" imgDesc="Timeless shapes designed with unparalleled comfort." href="/shop/2"/>
             <Cards imgSrc="/img/bednmug.jpg" imgName="Bedroom" imgDesc="Timeless shapes designed with unparalleled comfort." orientation="bg-bottom" href="/shop/3"/>
             </div>
 
-            <div className="shopButton tw-m-24 tw-flex tw-justify-center">
-                <Link href="/shopByRoom" className="tw-px-9 tw-py-3 tw-border-solid tw-border-2 tw-border-black">Shop</Link>
+            <div className="shopButton tw-mt-36 tw-mb-36 tw-flex tw-justify-center">
+                <Link href="/shopByRoom" className="tw-px-9 tw-py-3 tw-border-solid tw-border-2 tw-border-black tw-rounded-md">Shop</Link>
             </div>
             
             
@@ -43,8 +43,8 @@ const MainPage = () => {
             </div>
             <div className="getInspired tw-flex tw-flex-col tw-justify-center tw-gap-12">
                 <div className="getInspiredText">
-                    <h2>Get Inspired</h2>
-                    <p>Discover our favorite looks across the home to inspire your space.</p>
+                    <h2 className="tw-text-[1.9rem] ">Get Inspired</h2>
+                    <p className="tw-text-[1.2rem]">Discover our favorite looks across the home to inspire your space.</p>
                 </div>
                 
                 <div className="shopButton">

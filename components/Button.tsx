@@ -41,7 +41,7 @@ export const Quantity = ({quantity, setQuantity}:any) => {
     <div className="num-block skin-5">
       <div className="tw-w-[90px] tw-align-middle tw-border-solid tw-border-slate-200 tw-border-[1px] tw-rounded-sm">
         <button className="tw-text-[16px] tw-w-[20px] tw-leading-[41px]" onClick={() => handleClick('-')}>-</button>
-        <input type="text" className="tw-text-center tw-border-none tw-h-[41px] tw-w-[46px] tw-text-[16px]" value={quantity}/>
+        <input type="text" className="tw-text-center tw-border-none tw-h-[41px] tw-w-[46px] tw-text-[1.4rem]" value={quantity}/>
         <button className="tw-text-[16px] tw-w-[20px] tw-leading-[41px]" onClick={() => handleClick('+')}>+</button>
       </div>
     </div>
@@ -103,7 +103,7 @@ export const AddToCart = ({ quantity, productName, productPrice, productId }:Add
     
     
     <div className="shopButton tw-flex-col tw-items-center tw-mt-6 tw-w-full">
-      <a className="tw-block tw-text-center tw-py-3 tw-border-solid tw-border-[1px] tw-border-black tw-w-full" onClick={handleClicked}>Add to Cart</a>
+      <a className="tw-block tw-text-center tw-py-3 tw-border-solid tw-border-[1px] tw-border-black tw-w-full tw-text-[1.2rem]" onClick={handleClicked}>Add to Cart</a>
 
       {clicked && 
         <div className="tw-alert tw-alert-success tw-mt-4">

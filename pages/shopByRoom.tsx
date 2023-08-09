@@ -50,15 +50,16 @@ const ShopByRoomPage: React.FC = () => {
 
   return (
     <>
-      <Header />
-      {carouselData && <><MainPic url='img/mainPage.jpg'/>
+    <Header />
+      {carouselData && <><MainPic url='img/main.jpg'/>
 
-      <p>Designing a room with thoughtfully curated pieces sets the tone for a completed look you’ll love for years to come. Discover our favorite looks across the home to inspire your space.</p>
+      <div className='tw-flex tw-justify-center tw-mb-14'>
+        <p className='tw-w-[50%] tw-text-[1.5rem] tw-text-center'>Curate your space with carefully selected elements to establish a lasting aesthetic that resonates for years to come. Explore our top home looks for inspiration across various areas.</p>
+      </div>
+    
 
-      <p>__________</p>
-
-      <div className="livingroomtitle">
-        <h2>Living Room</h2>
+      <div className="livingroomtitle tw-mt-32">
+        <h2 className='tw-text-[2.3rem] tw-text-center tw-mb-8'>Living Room</h2>
       </div>
       <div className="livingRoom tw-h-[638px]">
         <Flickity
@@ -82,7 +83,7 @@ const ShopByRoomPage: React.FC = () => {
       </div>
       
       <div className="dini  ngroomtitle">
-        <h2>Dining Room</h2>
+        <h2 className='tw-text-[2.3rem] tw-text-center tw-mb-8'>Dining Room</h2>
       </div>
       <div className="diningRoom tw-h-[638px]">
         <Flickity
@@ -106,7 +107,7 @@ const ShopByRoomPage: React.FC = () => {
       </div>
       
       <div className="bedroomtitle">
-        <h2>Bedroom</h2>
+        <h2 className='tw-text-[2.3rem] tw-text-center tw-mb-8'>Bedroom</h2>
       </div>
       <div className="bedRoom tw-h-[638px]">
         <Flickity

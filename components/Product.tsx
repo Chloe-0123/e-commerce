@@ -20,9 +20,9 @@ export const Product = ({ url, name, price, product_id }:ProductProps) => {
         style={{ backgroundImage: `url(${url})` }}
       >
       </div>
-      <div className="tw-flex tw-justify-between">
-        <p>{name}</p>
-        <p>${price}</p>
+      <div className="tw-flex tw-justify-between tw-mt-4">
+        <p className='tw-text-[1.3rem]'>{name}</p>
+        <p className='tw-text-[1.3rem]'>${price}</p>
 
       </div>
 
@@ -48,10 +48,10 @@ export const ProductDesc = ({ productName, productPrice, productDesc, productId}
     <div className="productdesc tw-w-[30%] tw-h-[80vh]  tw-p-10">
 
       <div className="">
-      <h3 className='tw-text-[2rem]'>{productName}</h3>
+      <h3 className='tw-text-[2.5rem]'>{productName}</h3>
       <h3 className='tw-text-[1.2rem] tw-mb-8'>${productPrice}</h3>
       </div>
-      <p className='tw-mb-8'>{productDesc}</p>
+      <p className='tw-mb-8 tw-text-[1.1rem]'>{productDesc}</p>
       <QuantityAdd productName={productName} productPrice={productPrice} productId={productId}/>
 
 

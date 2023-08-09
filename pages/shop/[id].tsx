@@ -22,6 +22,16 @@ const ShopPage = () => {
     const router = useRouter();
     const { id } = router.query;
 
+    let category
+
+    if (id === '1') {
+        category = 'Living'
+    } else if (id === '2') {
+        category = 'Dining'
+    } else {
+        category = 'Bedroom'
+    }
+
     console.log(typeof(id))
 
     useEffect(() => {
@@ -43,7 +53,7 @@ const ShopPage = () => {
    return(
     <>
         <Header />
-        <MainPic url='/img/mainPage.jpg'/>
+        <MainPic url='/img/wall2.jpg' text={category} category={true}/>
         <div>
             {id === '2' ? 
             
@@ -65,7 +75,7 @@ const ShopPage = () => {
             <>
             
             <div className="tw-h-screen">
-            <PageIntro title={`The ${id === '1' ? "Living " : "Bed"}Room Collection`} p="Timeless shapes designed with luxe detail, handcrafted to order for unparalleled comfort and longevity."/>
+            <PageIntro title={`The ${id === '1' ? "Living " : "Bed"}Room Collection`} p="Crafted to perfection, our timeless silhouettes boast luxurious detailing, meticulously handcrafted for ultimate comfort and lasting durability."/>
             <div className="cards tw-flex tw-gap-x-12 tw-h-fit tw-justify-center tw-mt-20">
                 {id === '3' ? <><VerticalCard imgSrc='/img/cozyLivingRoom.jpg' imgDesc='Shop Beds' redirect='/furniture/Bed'/>
                 <VerticalCard imgSrc='/img/accent.jpg' imgDesc='Shop Nightstands / Dressers' redirect='/furniture/Dresser'/>

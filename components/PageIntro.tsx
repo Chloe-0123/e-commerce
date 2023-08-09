@@ -8,8 +8,8 @@ interface PageIntroProps {
 export const PageIntro = ({ title, p }:PageIntroProps) => {
   return (
     <div>
-        <h2>{title}</h2>
-        <p>{p}</p>
+        <h2 className='tw-text-[2.3rem] tw-text-center tw-mb-8'>{title}</h2>
+        <p className='tw-text-[1.3rem] tw-text-center'>{p}</p>
     </div>
   )
 }

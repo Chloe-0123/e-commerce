@@ -19,7 +19,7 @@ export const VerticalCard = (props: VerticalCardProps) => {
         >
         </div>
         <div className="desc">
-          <p className="tw-px-9 tw-text-center">{props.imgDesc}</p>
+          <p className="tw-px-9 tw-text-center tw-mt-4 tw-text-[1.3rem]">{props.imgDesc}</p>
         </div>
       </a>
     </>
