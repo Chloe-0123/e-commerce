@@ -5,7 +5,7 @@ This web application offers users a simulated shopping experience where they can
 
 **Link to project:** https://e-commerce-chi-seven.vercel.app/
 
-![alt tag](http://placecorgi.com/1200/650)
+![alt tag](https://ibb.co/LJZS8Wd)
 
 ## How It's Made:
 
@@ -25,14 +25,5 @@ This was also my first time utilizing the 'useContext' hook. Using the 'useConte
 ## Future Improvements:
 
 The application is not yet fully responsive. I hope to make some changes in the near future with Tailwind CSS. Furthermore, since it is an e-commerce application, I would like to implement a simulation of the real payment process. The users' orders are stored in database without a payment for now. 
-
-## Examples:
-Take a look at these couple examples that I have in my own portfolio:
-
-**Palettable:** https://github.com/alecortega/palettable
-
-**Twitter Battle:** https://github.com/alecortega/twitter-battle
-
-**Patch Panel:** https://github.com/alecortega/patch-panel
 
 
