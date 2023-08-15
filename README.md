@@ -5,7 +5,7 @@ This web application offers users a simulated shopping experience where they can
 
 **Link to project:** https://e-commerce-chi-seven.vercel.app/
 
-![alt tag](https://github.com/Chloe-0123/e-commerce/blob/main/public/img/screenshot.jpgg)
+![alt tag](https://github.com/Chloe-0123/e-commerce/blob/main/public/img/screenshot.jpg)
 
 ## How It's Made:
 
