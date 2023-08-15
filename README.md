@@ -1,34 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# E-Commerce
 
-## Getting Started
 
-First, run the development server:
+This web application offers users a simulated shopping experience where they can explore and place orders for various products.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+**Link to project:** https://e-commerce-chi-seven.vercel.app/
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![alt tag](http://placecorgi.com/1200/650)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## How It's Made:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+**Tech used:** 
 
-## Learn More
+**Frontend**: Next.js, Typescript, Tailwind CSS, Daisy UI
+**Backend**: NodeJS, MySQL, Auth.js(NextAuth)
 
-To learn more about Next.js, take a look at the following resources:
+This is a full-stack e-commerce app created with Next.js. Users can browse items by rooms or types of furniture, and add items to cart once they sign in with NextAuth. By utilizing various React libraries such as React Slick and Swiper, I was able to deliver a more engaging and interactive user experience. 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Lessons Learned:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+In this project, I was able to delve into some new areas of React development that could further enrich my skill set and solidify my problem solving abilities. One of the highlights was integrating new React libraries; navigating through the process of understanding the documentation, installing dependencies and seamlessly integrating them into the project was certainly challenging but was also very rewarding. 
 
-## Deploy on Vercel
+This was also my first time utilizing the 'useContext' hook. Using the 'useContext' hook allowed me to efficiently manage and share state across various components, which ultimately helped me to keep my code more organized and maintainable.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Future Improvements:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The application is not yet fully responsive. I hope to make some changes in the near future with Tailwind CSS. Furthermore, since it is an e-commerce application, I would like to implement a simulation of the real payment process. The users' orders are stored in database without a payment for now. 
+
+## Examples:
+Take a look at these couple examples that I have in my own portfolio:
+
+**Palettable:** https://github.com/alecortega/palettable
+
+**Twitter Battle:** https://github.com/alecortega/twitter-battle
+
+**Patch Panel:** https://github.com/alecortega/patch-panel
+
+

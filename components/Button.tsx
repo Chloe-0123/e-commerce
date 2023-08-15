@@ -3,6 +3,7 @@ import { SessionProvider, useSession, signIn, signOut } from
 "next-auth/react"
 import CartIcon from './CartIcon'
 import { CartContext } from './CartContext'
+import { useRouter } from 'next/router';
 
 interface buttonProps {
   path: string
@@ -60,6 +61,7 @@ export const AddToCart = ({ quantity, productName, productPrice, productId }:Add
  const { cartProducts, setCartProducts }= useContext(CartContext)
  const {data:session} = useSession()
 
+ const router = useRouter();
 
   const [clicked, setClicked] = useState(false)
 
@@ -100,6 +102,8 @@ export const AddToCart = ({ quantity, productName, productPrice, productId }:Add
 
     setCartProducts(existingCart)
 
+    } else {
+      router.push('/auth')
     }
     
 
