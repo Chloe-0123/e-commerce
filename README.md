@@ -5,7 +5,7 @@ This web application offers users a simulated shopping experience where they can
 
 **Link to project:** https://e-commerce-chi-seven.vercel.app/
 
-![alt tag]([http://placecorgi.com/1200/650](https://ibb.co/LJZS8Wd))
+![alt tag](https://ibb.co/LJZS8Wd)
 
 ## How It's Made:
 
