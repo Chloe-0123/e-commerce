@@ -15,6 +15,7 @@ const Header = () => {
     
     useEffect(() => {
       if (session && session.user && session.user.email) {
+        console.log('session', session)
         fetch(`api/user/getUser?email=${encodeURIComponent(session.user.email)}`)
         .then((response) => response.json())
         .then((data) => {
