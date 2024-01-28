@@ -2,6 +2,7 @@
 
 
 This web application offers users a simulated shopping experience where they can explore and place orders for various products.
+*currently updating expired database for users*
 
 **Link to project:** https://e-commerce-chi-seven.vercel.app/
 
